@@ -1,0 +1,309 @@
+#perfil {
+    color: #333;
+
+}
+
+/* MENU FIXO NA ESQUERDA (COMO VOCÊ QUER) */
+#menu {
+    position: fixed;
+    top: 14px;
+    left: 12px;
+    z-index: 1000;
+}
+
+.botao-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #e5c46b;
+    cursor: pointer;
+}
+
+#menu nav:not(.expandido) .botao-menu {
+    margin: 0 auto;
+}
+
+.botao-menu:hover {
+    background-color: rgba(229, 196, 107, 0.2);
+}
+
+#sandwich {
+    display: block;
+    color: #e5c46b;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#menu nav {
+    position: relative;
+    width: calc(var(--largura-sidebar) - 24px);
+    padding: 0;
+    transition: width 0.25s ease;
+}
+
+#menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    list-style: none;
+    padding: 14px 0 0;
+    margin: 0;
+}
+
+#menu li {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+#menu li > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#menu li > a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #e5c46b;
+}
+
+#menu nav:not(.expandido) li > a {
+    justify-content: center;
+    gap: 0;
+    padding: 10px 0;
+}
+
+#menu a > span {
+    display: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* --- ESTADOS DO MENU EXPANDIDO --- */
+
+#menu nav.expandido a > span {
+    display: inline-block;
+}
+
+#menu nav.expandido li:not(:last-child) {
+    border-bottom: dashed 1px #57565c;
+}
+
+#menu nav:not(.expandido) li > a[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 12px);
+    padding: 6px 10px;
+    border-radius: 10px;
+    background-color: #16213E;
+    box-shadow: 2px 2px 5px #333;
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-4px, -50%);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    z-index: 1100;
+}
+
+#menu nav:not(.expandido) li > a:hover::after,
+#menu nav:not(.expandido) li > a:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+}
+
+#main_home {
+    margin-top: 10vw;
+}
+
+.elementos_centrais {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5px; 
+    margin-bottom: 5px;  
+}
+
+.elementos_direita {
+    display: flex;
+    align-items: center;
+}
+
+.elementos_direita > a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    width: 3vw;
+    background-color: #333; 
+    border: 1px solid #333;
+    border-radius: 0px 100px 100px 0px; 
+    padding: 0px 15px;
+}
+
+.barra_pesquisa {
+    width: 40vw;
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 100px 0px 0px 100px; 
+    padding: 0px 15px; 
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+/* ESTRUTURA DO PAINEL */
+
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+#dashboard-layout {
+    --largura-sidebar: 72px;
+    min-height: 100vh;
+}
+
+#dashboard-layout.menu-expandido {
+    --largura-sidebar: 268px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--largura-sidebar);
+
+    background-color: #16213E;
+    border-radius: 0 0 18px 0;
+
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.2);
+    z-index: 950;
+    transition: width 0.25s ease;
+}
+
+#conteudo {
+    min-height: 100vh;
+    margin-left: var(--largura-sidebar);
+    transition: margin-left 0.25s ease;
+}
+
+.marca-sidebar {
+    transition: opacity 0.2s ease;
+}
+
+#sandwich {
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+#menu nav.expandido #sandwich {
+    color: #e5c46b;
+    transform: rotate(90deg);
+}
+
+.marca-sidebar {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 8px 14px;
+    border-bottom: dashed 1px #57565c;
+    color: white;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+#menu nav.expandido .marca-sidebar {
+    display: flex;
+}
+
+.marca-sidebar i {
+    color: #e5c46b;
+}
+
+.marca-sidebar span {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+#menu nav li > a[aria-current="page"] {
+    background-color: #e5c46b;
+    color: #16213E;
+}
+
+#menu nav li > a[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#header-home {
+    position: sticky;
+    top: 0;
+    min-height: 64px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    z-index: 900;
+}
+
+.marca-header {
+    color: #16213E;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 56px;
+    white-space: nowrap;
+}
+
+#search {
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+}
+
+.conteudo-interno {
+    padding: 24px 28px 40px;
+}
+
+.app-carregando,
+.noscript-mensagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 100vh;
+    color: #16213E;
+    font-family: "Outfit", "Segoe UI", sans-serif;
+}

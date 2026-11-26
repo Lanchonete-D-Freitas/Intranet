@@ -1,0 +1,4 @@
+/* O cadastro usa os mesmos componentes da home; apenas o cartão é mais largo. */
+#body_login .auth-cadastro .moldura {
+    width: min(560px, 100%);
+}

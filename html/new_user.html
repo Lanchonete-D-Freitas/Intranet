@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Cadastro | Lanchonete D'Freitas</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/new_user.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/x-icon" href="../imagens/magagu.png">
+</head>
+<body id="body_login">
+    <div id="dashboard-layout">
+        <header id="header-home">
+            <div class="elementos_esquerda">
+                <div class="marca-auth">
+                    <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                    <span>Lanchonete D'Freitas</span>
+                </div>
+            </div>
+
+            <nav aria-label="Navegação da conta">
+                <ul class="menu">
+                    <li><a id="nao_selecionado" class="botao" href="../html/login.html">Login</a></li>
+                    <li><a id="selecionado" class="botao" href="../html/new_user.html" aria-current="page">Cadastrar-se</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="conteudo-interno auth-conteudo auth-cadastro">
+            <section class="cartao moldura" aria-labelledby="titulo-cadastro">
+                <div class="cartao-cabecalho">
+                    <div>
+                        <h1 id="titulo-cadastro">Boas-vindas! Vamos começar seu Cadastro</h1>
+                        <p>Preencha os dados para criar sua conta.</p>
+                    </div>
+                </div>
+                <div class="cartao-corpo">
+                    <form action="../html/login.html" id="cadastro" method="get" class="grade-formulario">
+                        <div class="campo-grupo">
+                            <label for="nome_funcionario">Nome Completo</label>
+                            <input class="campo" type="text" id="nome_funcionario" name="nome_funcionario" placeholder="josé silva santos" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="tel_funcionario">Telefone</label>
+                            <input class="campo" type="text" id="tel_funcionario" name="tel_funcionario" placeholder="(xx) xxxxx-xxxx" required>
+                        </div>
+                        <div class="campo-grupo campo-largo">
+                            <label for="email_funcionario">E-mail</label>
+                            <input class="campo" type="text" id="email_funcionario" name="email_funcionario" placeholder="aaaabbbb@xyz.com" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="pass_cad">Senha</label>
+                            <input class="campo" type="text" id="pass_cad" name="pass_cad" placeholder="*********" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="pass_confir">Confirme a senha</label>
+                            <input class="campo" type="text" id="pass_confir" name="pass_confir" placeholder="*********" required>
+                        </div>
+                        <div class="campo-largo">
+                            <button id="button" class="botao botao-destaque botao-bloco" type="submit" onclick="cadastrar()">
+                                <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Concluir Cadastro
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js /main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Lanchonete D'Freitas</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../imagens/magagu.png">
+</head>
+<body id="body_login">
+    <div id="dashboard-layout">
+        <header id="header-home">
+            <div class="elementos_esquerda">
+                <div class="marca-auth">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Lanchonete D'Freitas</span>
+                </div>
+            </div>
+
+            <nav aria-label="Navegação da conta">
+                <ul class="menu">
+                    <li><a id="selecionado" class="botao" href="../html/login.html" aria-current="page">Login</a></li>
+                    <li><a id="nao_selecionado" class="botao" href="../html/new_user.html">Cadastrar-se</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="conteudo-interno auth-conteudo">
+            <section class="cartao moldura" aria-labelledby="titulo-login">
+                <div class="cartao-cabecalho">
+                    <div>
+                        <h1 id="titulo-login">Bem-vindo de Volta!</h1>
+                        <p>Acesse sua conta para continuar.</p>
+                    </div>
+                </div>
+                <div class="cartao-corpo">
+                    <form method="GET" class="auth-form">
+                        <div class="campo-grupo">
+                            <label for="user">Usuário</label>
+                            <input class="campo" type="text" id="user" name="user" placeholder="Nome de Usuário ou E-mail">
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="pass">Senha</label>
+                            <div class="campo-senha">
+                                <input class="campo" type="password" id="pass" name="pass" placeholder="Senha">
+                                <button type="button" id="showpass" class="botao-icone" aria-label="Mostrar Senha" onclick="mostrar_senha()">🙉</button>
+                            </div>
+                        </div>
+                        <button id="button" class="botao botao-destaque botao-bloco" type="submit" onclick="fazer_login()">
+                            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Entrar
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js /main.js"></script>
+</body>
+</html>
