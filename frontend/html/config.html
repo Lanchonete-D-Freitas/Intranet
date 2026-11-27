@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Lanchonete D'Freitas</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/x-icon" href="../imagens/magagu.png">
+    <link rel="stylesheet" href="../css/config.css">
+</head>
+<body>
+    <div id="app">
+        <div id="dashboard-layout">
+            <div id="sidebar-overlay" class="sidebar-overlay" hidden aria-hidden="true"></div>
+
+            <aside id="sidebar" aria-label="Menu principal">
+                <div id="menu">
+                    <nav id="menu-nav">
+                        <button
+                            id="botao-menu"
+                            class="botao-menu"
+                            type="button"
+                            aria-controls="menu-nav"
+                            aria-expanded="false"
+                            aria-label="Expandir menu"
+                        >
+                            <i id="sandwich" class="fa-solid fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <div class="marca-sidebar">
+                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                            <span>Lanchonete D'Freitas</span>
+                        </div>
+                        <ul id="ul_">
+                            <li>
+                                <a href="home.html" data-item-menu="home" data-tooltip="Home Page" aria-label="Home Page">
+                                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                                    <span>Home Page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pedidos.html" data-item-menu="pedidos" data-tooltip="Pedidos" aria-label="Pedidos">
+                                    <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                                    <span>Pedidos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-item-menu="clientes" data-tooltip="Clientes" aria-label="Clientes" aria-disabled="true" title="Funcionalidade indisponível">
+                                    <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                                    <span>Clientes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#vendas" data-item-menu="relatorios" data-tooltip="Relatórios" aria-label="Relatórios">
+                                    <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                                    <span>Relatórios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="config.html" data-item-menu="configuracoes" data-tooltip="Config." aria-label="Config." aria-current="page">
+                                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                                    <span>Config.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html" data-item-menu="sair" data-tooltip="Sair" aria-label="Sair">
+                                    <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                                    <span>Sair</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <div id="conteudo">
+                <header id="header-home">
+                    <div class="elementos_esquerda">
+                        <span class="marca-header">Lanchonete D'Freitas</span>
+                    </div>
+
+                    <div class="elementos_centrais">
+                        <label class="sr-only" for="pesquisa-global">Pesquisar seções de configuração</label>
+                        <input
+                            class="barra_pesquisa"
+                            id="pesquisa-global"
+                            type="search"
+                            placeholder="Pesquisar seções (Ctrl+K)"
+                            autocomplete="off"
+                        >
+                        <button id="search" type="button" aria-label="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="elementos_direita">
+                        <div id="indicador-conexao" class="indicador-conexao" role="status">
+                            <i class="fa-solid fa-circle" aria-hidden="true"></i>
+                            <span>Conectado</span>
+                        </div>
+
+                        <div class="area-notificacoes">
+                            <button
+                                id="botao-notificacoes"
+                                class="botao-icone"
+                                type="button"
+                                aria-label="Notificações"
+                                aria-expanded="false"
+                                aria-controls="painel-notificacoes"
+                            >
+                                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                                <span class="badge">0</span>
+                            </button>
+                            <div id="painel-notificacoes" class="painel-notificacoes" hidden>
+                                <strong>Notificações</strong>
+                                <p>Nenhuma notificação disponível.</p>
+                            </div>
+                        </div>
+
+                        <button id="botao-novo-pedido" class="botao botao-destaque" type="button">
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i> Novo pedido
+                        </button>
+
+                        <a class="link-perfil" href="config.html">
+                            <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+                            <span>Olá, usuário</span>
+                        </a>
+                    </div>
+                </header>
+
+                <div class="conteudo-interno">
+                    <div id="dashboard-header" class="dashboard-header">
+                        <div>
+                            <h1>Configurações</h1>
+                            <p>Perfil, preferências e regras da operação.</p>
+                        </div>
+                        <div class="linha-acoes">
+                            <button id="btn-restaurar-config" class="botao botao-secundario" type="button">
+                                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Restaurar padrões
+                            </button>
+                            <button id="btn-salvar-config" class="botao botao-destaque" type="button">
+                                <i class="fa-solid fa-check" aria-hidden="true"></i> Salvar alterações
+                            </button>
+                        </div>
+                    </div>
+
+                    <main id="config-page">
+                        <div class="config-layout">
+                            <aside class="cartao config-nav" aria-label="Navegação das configurações">
+                                <p class="config-nav-titulo">Seções</p>
+                                <nav id="config-tabs" role="tablist" aria-label="Seções de configuração">
+                                    <button id="aba-perfil" class="aba-config" type="button" role="tab" data-aba="painel-perfil" aria-controls="painel-perfil" aria-selected="true" tabindex="0">
+                                        <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+                                        <span><strong>Perfil e Conta</strong><small>Dados, senha e sessões</small></span>
+                                    </button>
+                                    <button id="aba-aparencia" class="aba-config" type="button" role="tab" data-aba="painel-aparencia" aria-controls="painel-aparencia" aria-selected="false" tabindex="-1">
+                                        <i class="fa-solid fa-palette" aria-hidden="true"></i>
+                                        <span><strong>Aparência e Usabilidade</strong><small>Tema, densidade e formatos</small></span>
+                                    </button>
+                                    <button id="aba-notificacoes" class="aba-config" type="button" role="tab" data-aba="painel-notificacoes-config" aria-controls="painel-notificacoes-config" aria-selected="false" tabindex="-1">
+                                        <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                                        <span><strong>Notificações</strong><small>Canais, alertas e sons</small></span>
+                                    </button>
+                                    <button id="aba-regras" class="aba-config" type="button" role="tab" data-aba="painel-regras" aria-controls="painel-regras" aria-selected="false" tabindex="-1">
+                                        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                        <span><strong>Regras Operacionais</strong><small>Pedidos, estoque e descontos</small></span>
+                                    </button>
+                                    <button id="aba-empresa" class="aba-config" type="button" role="tab" data-aba="painel-empresa" aria-controls="painel-empresa" aria-selected="false" tabindex="-1">
+                                        <i class="fa-solid fa-building" aria-hidden="true"></i>
+                                        <span><strong>Empresa e Documentos</strong><small>Dados, impressão e pagamentos</small></span>
+                                    </button>
+                                    <button id="aba-sistema" class="aba-config" type="button" role="tab" data-aba="painel-sistema" aria-controls="painel-sistema" aria-selected="false" tabindex="-1">
+                                        <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                                        <span><strong>Usuários e Sistema</strong><small>Perfis, integrações e auditoria</small></span>
+                                    </button>
+                                </nav>
+                                <div class="config-status">
+                                    <strong>Dados locais</strong>
+                                    As alterações desta demonstração ficam apenas nesta página.
+                                </div>
+                            </aside>
+
+                            <div>
+<section id="painel-perfil" class="painel-config" role="tabpanel" aria-labelledby="aba-perfil" tabindex="0">
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Dados Pessoais</h2>
+                                            <p>Informações da conta utilizada nesta intranet.</p>
+                                        </div>
+                                        <span class="etiqueta etiqueta-neutro">Somente neste navegador</span>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="perfil-topo">
+                                            <div class="avatar-area">
+                                                <div class="avatar-frame">
+                                                    <img id="foto-perfil" alt="Foto de perfil" hidden>
+                                                    <i id="avatar-placeholder" class="fa-solid fa-user" aria-hidden="true"></i>
+                                                    <label id="botao-foto" class="avatar-acao" for="foto-input" title="Selecionar foto" hidden>
+                                                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                                                        <span class="sr-only">Selecionar foto de perfil</span>
+                                                    </label>
+                                                    <input id="foto-input" class="sr-only" type="file" accept="image/*" hidden>
+                                                </div>
+                                                <small id="legenda-foto">Foto de perfil</small>
+                                            </div>
+                                            <div>
+                                                <h3 id="resumo-nome">Usuário da Lanchonete</h3>
+                                                <p id="resumo-cargo">Operador</p>
+                                                <p id="resumo-email">usuario@lanchonete.local</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="perfil-visualizacao">
+                                            <dl class="dados-leitura">
+                                                <div class="dado-item">
+                                                    <dt>Nome completo</dt>
+                                                    <dd id="txt-nome">Usuário da Lanchonete</dd>
+                                                </div>
+                                                <div class="dado-item">
+                                                    <dt>Cargo / função</dt>
+                                                    <dd id="txt-cargo">Operador</dd>
+                                                </div>
+                                                <div class="dado-item">
+                                                    <dt>E-mail</dt>
+                                                    <dd id="txt-email">usuario@lanchonete.local</dd>
+                                                </div>
+                                                <div class="dado-item">
+                                                    <dt>Telefone</dt>
+                                                    <dd id="txt-telefone">(11) 00000-0000</dd>
+                                                </div>
+                                            </dl>
+                                            <div class="acoes-cartao">
+                                                <button id="btn-editar-perfil" class="botao botao-destaque" type="button">
+                                                    <i class="fa-solid fa-pen" aria-hidden="true"></i> Editar Perfil
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <form id="form-perfil" class="grade-formulario" hidden novalidate>
+                                            <div class="campo-grupo">
+                                                <label for="edit-nome">Nome completo</label>
+                                                <input id="edit-nome" class="campo" type="text" autocomplete="name" required>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="edit-cargo">Cargo / função</label>
+                                                <input id="edit-cargo" class="campo" type="text" autocomplete="organization-title">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="edit-email">E-mail</label>
+                                                <input id="edit-email" class="campo" type="email" autocomplete="email" required>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="edit-telefone">Telefone</label>
+                                                <input id="edit-telefone" class="campo" type="tel" autocomplete="tel">
+                                            </div>
+                                            <div class="campo-grupo campo-largo">
+                                                <label for="foto-input">Foto de perfil</label>
+                                                <small id="aviso-foto" class="texto-suave" hidden>
+                                                    Use o ícone de câmera sobre a foto para escolher outra imagem (PNG ou JPG, até 2 MB).
+                                                </small>
+                                            </div>
+                                            <div class="campo-grupo campo-largo acoes-cartao">
+                                                <button id="btn-cancelar-perfil" class="botao botao-secundario" type="button">Cancelar</button>
+                                                <button class="botao botao-destaque" type="submit">
+                                                    <i class="fa-solid fa-check" aria-hidden="true"></i> Salvar Alterações
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Alteração de Senha</h2>
+                                            <p>Use uma senha forte com pelo menos 10 caracteres, letras e números.</p>
+                                        </div>
+                                        <span class="etiqueta etiqueta-info">Demonstração</span>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <form id="form-senha" class="config-linha-campos" novalidate>
+                                            <div class="campo-grupo">
+                                                <label for="senha-atual">Senha atual</label>
+                                                <div class="campo-senha">
+                                                    <input id="senha-atual" class="campo" type="password" placeholder="Senha atual" autocomplete="current-password">
+                                                    <button class="botao-icone" type="button" data-toggle-senha="senha-atual" aria-label="Mostrar senha">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="senha-nova">Nova senha</label>
+                                                <div class="campo-senha">
+                                                    <input id="senha-nova" class="campo" type="password" placeholder="Mínimo de 10 caracteres" autocomplete="new-password">
+                                                    <button class="botao-icone" type="button" data-toggle-senha="senha-nova" aria-label="Mostrar senha">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="senha-confirmar">Confirmar nova senha</label>
+                                                <div class="campo-senha">
+                                                    <input id="senha-confirmar" class="campo" type="password" placeholder="Repita a nova senha" autocomplete="new-password">
+                                                    <button class="botao-icone" type="button" data-toggle-senha="senha-confirmar" aria-label="Mostrar senha">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div id="forca-senha" class="forca-senha campo-largo" data-nivel="0">
+                                                <div class="forca-senha-cabecalho">
+                                                    <span>Força da nova senha</span>
+                                                    <strong id="forca-rotulo">Digite uma nova senha</strong>
+                                                </div>
+                                                <div class="forca-barras" aria-hidden="true">
+                                                    <span></span><span></span><span></span><span></span>
+                                                </div>
+                                            </div>
+                                            <div class="campo-grupo campo-largo acoes-cartao">
+                                                <button class="botao botao-destaque" type="submit">
+                                                    <i class="fa-solid fa-key" aria-hidden="true"></i> Atualizar senha
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="config-grade">
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Autenticação em Duas Etapas</h2>
+                                                <p>Proteção adicional demonstrativa para o acesso.</p>
+                                            </div>
+                                            <span class="etiqueta etiqueta-sucesso">Ativo</span>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Exigir código a cada login</strong>
+                                                    <small>Sem envio real de códigos nesta demonstração.</small>
+                                                </div>
+                                                <label class="interruptor">
+                                                    <input id="twofa-ativo" type="checkbox" checked aria-label="Exigir código a cada login">
+                                                    <span class="trilha"></span>
+                                                </label>
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Chave de demonstração</strong>
+                                                    <small>Identificador local: demo-2fa-local</small>
+                                                </div>
+                                                <button id="btn-copiar-chave" class="botao botao-pequeno botao-secundario" type="button">Copiar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Sessões Ativas</h2>
+                                                <p>Dispositivos com acesso simulado à conta.</p>
+                                            </div>
+                                            <button id="btn-encerrar-outras" class="botao botao-pequeno botao-secundario" type="button">Encerrar outras</button>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div id="lista-sessoes" class="lista-sessoes">
+                                                <div class="sessao-item" data-sessao data-atual="true">
+                                                    <div class="sessao-info">
+                                                        <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+                                                        <div>
+                                                            <strong>Navegador atual</strong>
+                                                            <small>Este dispositivo</small>
+                                                        </div>
+                                                    </div>
+                                                    <span class="etiqueta etiqueta-sucesso">Atual</span>
+                                                </div>
+                                                <div class="sessao-item" data-sessao>
+                                                    <div class="sessao-info">
+                                                        <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+                                                        <div>
+                                                            <strong>Celular • Safari</strong>
+                                                            <small>Acesso simulado há 3 horas</small>
+                                                        </div>
+                                                    </div>
+                                                    <button class="botao botao-pequeno botao-secundario botao-perigo" type="button" data-encerrar-sessao>Encerrar</button>
+                                                </div>
+                                                <div class="sessao-item" data-sessao>
+                                                    <div class="sessao-info">
+                                                        <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+                                                        <div>
+                                                            <strong>Notebook • Firefox</strong>
+                                                            <small>Acesso simulado ontem</small>
+                                                        </div>
+                                                    </div>
+                                                    <button class="botao botao-pequeno botao-secundario botao-perigo" type="button" data-encerrar-sessao>Encerrar</button>
+                                                </div>
+                                            </div>
+                                            <div id="sessoes-vazio" class="estado estado-vazio" hidden>
+                                                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                                                <strong>Nenhuma outra sessão ativa</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+<section id="painel-aparencia" class="painel-config" role="tabpanel" aria-labelledby="aba-aparencia" tabindex="0" hidden>
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Tema da Interface</h2>
+                                            <p>Escolha a aparência preferida para o painel.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="opcoes-cartao">
+                                            <label class="opcao-cartao">
+                                                <input type="radio" name="tema" value="claro" data-rotulo="claro" checked>
+                                                <div>
+                                                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                                                    <strong>Tema claro</strong>
+                                                    <small>Padrão desta intranet.</small>
+                                                </div>
+                                            </label>
+                                            <label class="opcao-cartao">
+                                                <input type="radio" name="tema" value="escuro" data-rotulo="escuro">
+                                                <div>
+                                                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                                                    <strong>Tema escuro</strong>
+                                                    <small>Preferência demonstrativa.</small>
+                                                </div>
+                                            </label>
+                                            <label class="opcao-cartao">
+                                                <input type="radio" name="tema" value="sistema" data-rotulo="do sistema">
+                                                <div>
+                                                    <i class="fa-solid fa-display" aria-hidden="true"></i>
+                                                    <strong>Seguir o sistema</strong>
+                                                    <small>Preferência demonstrativa.</small>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="config-grade">
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Densidade da Interface</h2>
+                                                <p>Espaçamento dos cartões e tabelas.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="config-grade">
+                                                <button class="botao-densidade" type="button" data-densidade="compacto" aria-pressed="false">
+                                                    <i class="fa-solid fa-compress" aria-hidden="true"></i>
+                                                    Compacto
+                                                    <small>Mais conteúdo na tela.</small>
+                                                </button>
+                                                <button class="botao-densidade opcao-ativa" type="button" data-densidade="confortavel" aria-pressed="true">
+                                                    <i class="fa-solid fa-expand" aria-hidden="true"></i>
+                                                    Confortável
+                                                    <small>Espaçamento padrão.</small>
+                                                </button>
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Itens por página</strong>
+                                                    <small>Quantidade padrão nas listagens.</small>
+                                                </div>
+                                                <select id="itens-pagina" class="campo" style="width: auto;" data-preferencia>
+                                                    <option value="10">10 itens</option>
+                                                    <option value="25" selected>25 itens</option>
+                                                    <option value="50">50 itens</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Ponto de Entrada</h2>
+                                                <p>Tela exibida após o acesso.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="campo-grupo">
+                                                <label for="modulo-inicial">Módulo inicial padrão</label>
+                                                <select id="modulo-inicial" class="campo" data-preferencia>
+                                                    <option value="dashboard" selected>Visão geral</option>
+                                                    <option value="pedidos">Pedidos</option>
+                                                    <option value="novo-pedido">Novo pedido</option>
+                                                </select>
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Atalhos de teclado</strong>
+                                                    <small>Ctrl+K para buscar seções.</small>
+                                                </div>
+                                                <span class="etiqueta etiqueta-sucesso">Ativos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Localização e Formatação</h2>
+                                            <p>Padrões regionais demonstrativos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="config-linha-campos">
+                                            <div class="campo-grupo">
+                                                <label for="fuso-horario">Fuso horário</label>
+                                                <select id="fuso-horario" class="campo" data-preferencia>
+                                                    <option value="America/Sao_Paulo" selected>America/Sao_Paulo (UTC-03:00)</option>
+                                                    <option value="America/Manaus">America/Manaus (UTC-04:00)</option>
+                                                    <option value="UTC">UTC</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="formato-data">Formato de data</label>
+                                                <select id="formato-data" class="campo" data-preferencia>
+                                                    <option value="ddmmaaaa" selected>DD/MM/AAAA</option>
+                                                    <option value="aaaammdd">AAAA-MM-DD</option>
+                                                    <option value="mmddaaaa">MM/DD/AAAA</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="moeda">Moeda</label>
+                                                <select id="moeda" class="campo" data-preferencia>
+                                                    <option value="BRL" selected>Real (BRL)</option>
+                                                    <option value="USD">Dólar (USD)</option>
+                                                    <option value="EUR">Euro (EUR)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="painel-notificacoes-config" class="painel-config" role="tabpanel" aria-labelledby="aba-notificacoes" tabindex="0" hidden>
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Canais e Eventos</h2>
+                                            <p>Selecione onde cada aviso deve ser exibido.</p>
+                                        </div>
+                                        <button id="btn-ativar-notificacoes" class="botao botao-pequeno botao-secundario" type="button">Ativar todos</button>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="tabela-responsiva">
+                                            <table id="tabela-notificacoes" class="tabela">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Evento</th>
+                                                        <th>Painel interno</th>
+                                                        <th>E-mail</th>
+                                                        <th>Mensagem</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Novo pedido</strong><br><small class="texto-suave">Registro de uma nova venda.</small></td>
+                                                        <td><input type="checkbox" checked aria-label="Painel interno para novo pedido"></td>
+                                                        <td><input type="checkbox" checked aria-label="E-mail para novo pedido"></td>
+                                                        <td><input type="checkbox" aria-label="Mensagem para novo pedido"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Status do pedido</strong><br><small class="texto-suave">Alterações no andamento.</small></td>
+                                                        <td><input type="checkbox" checked aria-label="Painel interno para status do pedido"></td>
+                                                        <td><input type="checkbox" aria-label="E-mail para status do pedido"></td>
+                                                        <td><input type="checkbox" checked aria-label="Mensagem para status do pedido"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Estoque baixo</strong><br><small class="texto-suave">Saldo abaixo do mínimo.</small></td>
+                                                        <td><input type="checkbox" checked aria-label="Painel interno para estoque baixo"></td>
+                                                        <td><input type="checkbox" checked aria-label="E-mail para estoque baixo"></td>
+                                                        <td><input type="checkbox" aria-label="Mensagem para estoque baixo"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Pedido atrasado</strong><br><small class="texto-suave">Prazo de expedição excedido.</small></td>
+                                                        <td><input type="checkbox" checked aria-label="Painel interno para pedido atrasado"></td>
+                                                        <td><input type="checkbox" aria-label="E-mail para pedido atrasado"></td>
+                                                        <td><input type="checkbox" aria-label="Mensagem para pedido atrasado"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Som de Alertas</h2>
+                                            <p>Sinal sonoro demonstrativo para novos pedidos.</p>
+                                        </div>
+                                        <button id="btn-testar-som" class="botao botao-pequeno botao-secundario" type="button">
+                                            <i class="fa-solid fa-music" aria-hidden="true"></i> Testar som
+                                        </button>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="config-linha-campos">
+                                            <div class="campo-grupo">
+                                                <label for="som-alerta">Campainha</label>
+                                                <select id="som-alerta" class="campo" data-preferencia>
+                                                    <option value="suave" selected>Toque suave</option>
+                                                    <option value="moderno">Toque moderno</option>
+                                                    <option value="digital">Pulso digital</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="volume-alerta">Volume: <span id="volume-valor">75%</span></label>
+                                                <input id="volume-alerta" type="range" min="0" max="100" value="75" style="width: 100%; accent-color: var(--cor-primaria);">
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Não perturbar</strong>
+                                                    <small>Silenciar fora do expediente.</small>
+                                                </div>
+                                                <label class="interruptor">
+                                                    <input id="nao-perturbar" type="checkbox" checked aria-label="Não perturbar">
+                                                    <span class="trilha"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+<section id="painel-regras" class="painel-config" role="tabpanel" aria-labelledby="aba-regras" tabindex="0" hidden>
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Numeração de Pedidos</h2>
+                                            <p>Prefixo e sequência usados nos códigos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="config-linha-campos">
+                                            <div class="campo-grupo">
+                                                <label for="prefixo-pedido">Prefixo</label>
+                                                <input id="prefixo-pedido" class="campo" type="text" value="#PDV-">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="sequencia-pedido">Próxima sequência</label>
+                                                <input id="sequencia-pedido" class="campo" type="number" min="0" value="1">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label>Prévia do próximo código</label>
+                                                <div id="previa-codigo" class="previa-codigo">#PDV-000001</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Status dos Pedidos</h2>
+                                            <p>Etapas consideradas no fluxo operacional.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="etiquetas-status">
+                                            <span class="etiqueta etiqueta-neutro">Aberto</span>
+                                            <span class="etiqueta etiqueta-atencao">Aguardando</span>
+                                            <span class="etiqueta etiqueta-info">Em preparo</span>
+                                            <span class="etiqueta etiqueta-sucesso">Pronto</span>
+                                            <span class="etiqueta etiqueta-sucesso">Entregue</span>
+                                            <span class="etiqueta etiqueta-erro">Cancelado</span>
+                                        </div>
+                                        <div class="linha-config">
+                                            <div>
+                                                <strong>Exigir justificativa no cancelamento</strong>
+                                                <small>O operador informa o motivo ao cancelar.</small>
+                                            </div>
+                                            <label class="interruptor">
+                                                <input type="checkbox" checked aria-label="Exigir justificativa no cancelamento">
+                                                <span class="trilha"></span>
+                                            </label>
+                                        </div>
+                                        <div class="linha-config">
+                                            <div>
+                                                <strong>Exigir justificativa em descontos</strong>
+                                                <small>Descontos manuais passam por registro.</small>
+                                            </div>
+                                            <label class="interruptor">
+                                                <input type="checkbox" checked aria-label="Exigir justificativa em descontos">
+                                                <span class="trilha"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="config-grade">
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Estoque</h2>
+                                                <p>Regras de conferência e saldo.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Bloquear venda sem estoque</strong>
+                                                    <small>Impede a venda acima do saldo.</small>
+                                                </div>
+                                                <label class="interruptor">
+                                                    <input type="checkbox" checked aria-label="Bloquear venda sem estoque">
+                                                    <span class="trilha"></span>
+                                                </label>
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Permitir saldo negativo</strong>
+                                                    <small>Regime demonstrativo desativado.</small>
+                                                </div>
+                                                <label class="interruptor">
+                                                    <input type="checkbox" aria-label="Permitir saldo negativo">
+                                                    <span class="trilha"></span>
+                                                </label>
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Estoque mínimo padrão</strong>
+                                                    <small>Unidades por item.</small>
+                                                </div>
+                                                <input class="campo" type="number" min="0" value="15" style="width: 80px;" aria-label="Estoque mínimo padrão">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Alçada de Desconto</h2>
+                                                <p>Limite aplicável sem aprovação.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Teto de desconto: <span id="desconto-valor">10%</span></strong>
+                                                    <small>Ajuste o limite no controle abaixo.</small>
+                                                </div>
+                                            </div>
+                                            <input id="desconto-limite" type="range" min="1" max="30" value="10" style="width: 100%; accent-color: var(--cor-primaria);" aria-label="Teto de desconto">
+                                            <p class="texto-suave">Faixa de 1% a 30%.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="painel-empresa" class="painel-config" role="tabpanel" aria-labelledby="aba-empresa" tabindex="0" hidden>
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Dados Cadastrais</h2>
+                                            <p>Informações locais usadas em demonstrações de documentos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="config-linha-campos">
+                                            <div class="campo-grupo">
+                                                <label for="razao-social">Razão social</label>
+                                                <input id="razao-social" class="campo" type="text" value="Lanchonete D'Freitas Ltda.">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="nome-fantasia">Nome fantasia</label>
+                                                <input id="nome-fantasia" class="campo" type="text" value="Lanchonete D'Freitas">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="cnpj">CNPJ</label>
+                                                <input id="cnpj" class="campo" type="text" value="00.000.000/0001-00">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="telefone-empresa">Telefone</label>
+                                                <input id="telefone-empresa" class="campo" type="tel" value="(11) 00000-0000">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="email-empresa">E-mail</label>
+                                                <input id="email-empresa" class="campo" type="email" value="contato@lanchonete.local">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="cep-empresa">CEP</label>
+                                                <input id="cep-empresa" class="campo" type="text" value="00000-000">
+                                            </div>
+                                        </div>
+                                        <div class="campo-grupo" style="margin-top: 12px;">
+                                            <label for="endereco-empresa">Endereço</label>
+                                            <input id="endereco-empresa" class="campo" type="text" placeholder="Endereço não informado">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="config-grade">
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Identidade nas Impressões</h2>
+                                                <p>Logotipo e formato de papel.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="linha-config">
+                                                <div class="sessao-info">
+                                                    <div class="logo-preview">
+                                                        <img id="logo-preview" alt="Prévia do logotipo" hidden>
+                                                        <i id="logo-placeholder" class="fa-solid fa-image" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div>
+                                                        <strong>Logotipo</strong>
+                                                        <small>PNG ou JPG, até 2 MB.</small>
+                                                    </div>
+                                                </div>
+                                                <label class="botao botao-pequeno botao-secundario" for="logo-input">Substituir</label>
+                                                <input id="logo-input" class="sr-only" type="file" accept="image/*">
+                                            </div>
+                                            <div class="linha-config">
+                                                <div>
+                                                    <strong>Formato de impressão</strong>
+                                                    <small>Papel A4 ou bobina térmica.</small>
+                                                </div>
+                                                <div class="etiquetas-status">
+                                                    <label class="etiqueta etiqueta-sucesso"><input type="radio" name="impressao" value="a4" checked> A4</label>
+                                                    <label class="etiqueta etiqueta-neutro"><input type="radio" name="impressao" value="bobina"> Bobina 80mm</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cartao">
+                                        <div class="cartao-cabecalho">
+                                            <div>
+                                                <h2>Meios de Pagamento</h2>
+                                                <p>Formas disponíveis na operação.</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartao-corpo">
+                                            <div class="linha-config"><strong>Pix</strong><input type="checkbox" checked aria-label="Habilitar Pix"></div>
+                                            <div class="linha-config"><strong>Dinheiro</strong><input type="checkbox" checked aria-label="Habilitar dinheiro"></div>
+                                            <div class="linha-config"><strong>Cartão</strong><input type="checkbox" checked aria-label="Habilitar cartão"></div>
+                                            <div class="linha-config"><strong>Boleto</strong><input type="checkbox" aria-label="Habilitar boleto"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Mensagem de Rodapé</h2>
+                                            <p>Texto demonstrativo para comprovantes.</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="campo-grupo">
+                                            <label for="rodape-documento">Rodapé padrão</label>
+                                            <textarea id="rodape-documento" class="campo" rows="3">Atenciosamente, equipe Lanchonete D'Freitas.</textarea>
+                                        </div>
+                                        <div class="linha-config">
+                                            <div>
+                                                <strong>Exibir QR Code de validação</strong>
+                                                <small>Opção apenas ilustrativa.</small>
+                                            </div>
+                                            <label class="interruptor">
+                                                <input id="qr-validacao" type="checkbox" checked aria-label="Exibir QR Code de validação">
+                                                <span class="trilha"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+<section id="painel-sistema" class="painel-config" role="tabpanel" aria-labelledby="aba-sistema" tabindex="0" hidden>
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Perfis de Acesso</h2>
+                                            <p>Autorizações demonstrativas por função.</p>
+                                        </div>
+                                        <button id="btn-novo-perfil" class="botao botao-pequeno botao-secundario" type="button">
+                                            <i class="fa-solid fa-plus" aria-hidden="true"></i> Novo perfil
+                                        </button>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="tabela-responsiva">
+                                            <table class="tabela">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Perfil</th>
+                                                        <th>Visualizar</th>
+                                                        <th>Criar</th>
+                                                        <th>Editar</th>
+                                                        <th>Excluir</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Administrador</strong><br><small class="texto-suave">Acesso às configurações.</small></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Operador</strong><br><small class="texto-suave">Rotina de pedidos e balcão.</small></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--cor-texto-suave);" aria-label="Não permitido"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Expedição</strong><br><small class="texto-suave">Separação e envio.</small></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--cor-texto-suave);" aria-label="Não permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-check" style="color: var(--cor-sucesso);" aria-label="Permitido"></i></td>
+                                                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--cor-texto-suave);" aria-label="Não permitido"></i></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Integrações</h2>
+                                            <p>Chaves simuladas e testes locais de conexão.</p>
+                                        </div>
+                                        <span class="etiqueta etiqueta-info">Somente demonstração</span>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="lista-sessoes">
+                                            <div class="integracao-item">
+                                                <div>
+                                                    <strong>Pagamentos</strong>
+                                                    <small>Chave de exemplo</small>
+                                                </div>
+                                                <div class="campo-senha">
+                                                    <input id="chave-pagamentos" class="campo" type="password" value="demo-chave-pagamentos" readonly>
+                                                    <button class="botao-icone" type="button" data-toggle-senha="chave-pagamentos" aria-label="Mostrar chave">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <button class="botao botao-pequeno botao-secundario" type="button" data-testar-integracao="Pagamentos">Testar</button>
+                                            </div>
+                                            <div class="integracao-item">
+                                                <div>
+                                                    <strong>Mensagens</strong>
+                                                    <small>Chave de exemplo</small>
+                                                </div>
+                                                <div class="campo-senha">
+                                                    <input id="chave-mensagens" class="campo" type="password" value="demo-chave-mensagens" readonly>
+                                                    <button class="botao-icone" type="button" data-toggle-senha="chave-mensagens" aria-label="Mostrar chave">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <button class="botao botao-pequeno botao-secundario" type="button" data-testar-integracao="Mensagens">Testar</button>
+                                            </div>
+                                            <div class="integracao-item">
+                                                <div>
+                                                    <strong>E-mail</strong>
+                                                    <small>Chave de exemplo</small>
+                                                </div>
+                                                <div class="campo-senha">
+                                                    <input id="chave-email" class="campo" type="password" value="demo-chave-email" readonly>
+                                                    <button class="botao-icone" type="button" data-toggle-senha="chave-email" aria-label="Mostrar chave">
+                                                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <button class="botao botao-pequeno botao-secundario" type="button" data-testar-integracao="E-mail">Testar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cartao">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2>Log de Auditoria</h2>
+                                            <p>Registros simulados para exportação local.</p>
+                                        </div>
+                                        <div class="linha-acoes">
+                                            <button id="btn-exportar-csv" class="botao botao-pequeno botao-secundario" type="button">CSV</button>
+                                            <button id="btn-exportar-json" class="botao botao-pequeno botao-secundario" type="button">JSON</button>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="tabela-responsiva">
+                                            <table class="tabela">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Usuário</th>
+                                                        <th>Ação</th>
+                                                        <th>Origem</th>
+                                                        <th>Quando</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Operador</td>
+                                                        <td>Atualização de preferências</td>
+                                                        <td>Navegador local</td>
+                                                        <td>Hoje, 14:32</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Administrador</td>
+                                                        <td>Alteração de alçada de desconto</td>
+                                                        <td>Navegador local</td>
+                                                        <td>Hoje, 11:15</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sistema</td>
+                                                        <td>Rotina de backup simulada</td>
+                                                        <td>Ambiente local</td>
+                                                        <td>Hoje, 03:00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <p class="noscript-mensagem">É necessário habilitar o JavaScript para utilizar as configurações.</p>
+    </noscript>
+<script type="module">
+    import { montarLayout } from '../js /layout.js';
+    import { criarStore } from '../js /store.js';
+    import { mostrarToast } from '../js /ui.js';
+
+    const store = criarStore({
+        periodo: '7-dias',
+        busca: '',
+        conectado: navigator.onLine
+    });
+
+    const pagina = document.getElementById('config-page');
+    const abas = Array.from(document.querySelectorAll('#config-tabs [role="tab"]'));
+    const paineis = Array.from(document.querySelectorAll('#config-page .painel-config'));
+
+    function normalizarTexto(valor) {
+        return String(valor)
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim();
+    }
+
+    function selecionarAba(aba) {
+        if (!aba) {
+            return;
+        }
+
+        abas.forEach((item) => {
+            const ativa = item === aba;
+            item.setAttribute('aria-selected', String(ativa));
+            item.tabIndex = ativa ? 0 : -1;
+        });
+
+        paineis.forEach((painel) => {
+            painel.hidden = painel.id !== aba.dataset.aba;
+        });
+    }
+
+    function filtrarAbas(termo) {
+        const busca = normalizarTexto(termo);
+        let primeiraVisivel = null;
+
+        abas.forEach((aba) => {
+            const visivel = !busca || normalizarTexto(aba.textContent).includes(busca);
+            aba.hidden = !visivel;
+
+            if (visivel && !primeiraVisivel) {
+                primeiraVisivel = aba;
+            }
+        });
+
+        const abaAtiva = abas.find((aba) => aba.getAttribute('aria-selected') === 'true');
+        if (busca && abaAtiva && abaAtiva.hidden) {
+            selecionarAba(primeiraVisivel);
+        }
+    }
+
+    abas.forEach((aba) => {
+        aba.addEventListener('click', () => selecionarAba(aba));
+        aba.addEventListener('keydown', (evento) => {
+            const visiveis = abas.filter((item) => !item.hidden);
+            const indice = visiveis.indexOf(aba);
+            let proxima = null;
+
+            if (evento.key === 'ArrowRight' || evento.key === 'ArrowDown') {
+                proxima = visiveis[(indice + 1) % visiveis.length];
+            } else if (evento.key === 'ArrowLeft' || evento.key === 'ArrowUp') {
+                proxima = visiveis[(indice - 1 + visiveis.length) % visiveis.length];
+            } else if (evento.key === 'Home') {
+                proxima = visiveis[0];
+            } else if (evento.key === 'End') {
+                proxima = visiveis[visiveis.length - 1];
+            }
+
+            if (proxima) {
+                evento.preventDefault();
+                selecionarAba(proxima);
+                proxima.focus();
+            }
+        });
+    });
+
+    const acoes = {
+        definirPeriodo() {},
+        definirBusca(busca) {
+            filtrarAbas(busca);
+        },
+        abrirNovoPedido() {
+            window.location.href = 'novo_pedido.html';
+        }
+    };
+
+    montarLayout(document.getElementById('app'), store, acoes);
+    window.addEventListener('online', () => store.definir({ conectado: true }));
+    window.addEventListener('offline', () => store.definir({ conectado: false }));
+
+    /* Perfil: modo de visualização (textos) x modo de edição (campos). */
+    const perfil = {
+        nome: 'Usuário da Lanchonete',
+        cargo: 'Operador',
+        email: 'usuario@lanchonete.local',
+        telefone: '(11) 00000-0000',
+        foto: ''
+    };
+
+    let rascunhoPerfil = null;
+    let fotoTemporaria = '';
+
+    const fotoPerfil = document.getElementById('foto-perfil');
+    const avatarPlaceholder = document.getElementById('avatar-placeholder');
+    const botaoFoto = document.getElementById('botao-foto');
+    const fotoInput = document.getElementById('foto-input');
+    const avisoFoto = document.getElementById('aviso-foto');
+    const perfilVisualizacao = document.getElementById('perfil-visualizacao');
+    const formPerfil = document.getElementById('form-perfil');
+
+    function atualizarFoto(src) {
+        if (src) {
+            fotoPerfil.src = src;
+            fotoPerfil.hidden = false;
+            avatarPlaceholder.hidden = true;
+        } else {
+            fotoPerfil.removeAttribute('src');
+            fotoPerfil.hidden = true;
+            avatarPlaceholder.hidden = false;
+        }
+    }
+
+    function sincronizarPerfil() {
+        document.getElementById('txt-nome').textContent = perfil.nome;
+        document.getElementById('txt-cargo').textContent = perfil.cargo || 'Não informado';
+        document.getElementById('txt-email').textContent = perfil.email;
+        document.getElementById('txt-telefone').textContent = perfil.telefone || 'Não informado';
+        document.getElementById('resumo-nome').textContent = perfil.nome;
+        document.getElementById('resumo-cargo').textContent = perfil.cargo || 'Não informado';
+        document.getElementById('resumo-email').textContent = perfil.email;
+        atualizarFoto(perfil.foto);
+    }
+
+    function mostrarVisaoPerfil() {
+        perfilVisualizacao.hidden = false;
+        formPerfil.hidden = true;
+        botaoFoto.hidden = true;
+        avisoFoto.hidden = true;
+        fotoInput.hidden = true;
+        fotoInput.value = '';
+        sincronizarPerfil();
+    }
+
+    document.getElementById('btn-editar-perfil').addEventListener('click', () => {
+        rascunhoPerfil = { ...perfil };
+        fotoTemporaria = perfil.foto;
+
+        document.getElementById('edit-nome').value = perfil.nome;
+        document.getElementById('edit-cargo').value = perfil.cargo;
+        document.getElementById('edit-email').value = perfil.email;
+        document.getElementById('edit-telefone').value = perfil.telefone;
+
+        perfilVisualizacao.hidden = true;
+        formPerfil.hidden = false;
+        botaoFoto.hidden = false;
+        avisoFoto.hidden = false;
+        fotoInput.hidden = false;
+        document.getElementById('edit-nome').focus();
+    });
+
+    fotoInput.addEventListener('change', (evento) => {
+        const arquivo = evento.target.files[0];
+        if (!arquivo) {
+            return;
+        }
+
+        if (!arquivo.type.startsWith('image/')) {
+            mostrarToast('Selecione um arquivo de imagem.', 'erro');
+            evento.target.value = '';
+            return;
+        }
+
+        if (arquivo.size > 2 * 1024 * 1024) {
+            mostrarToast('A imagem deve ter no máximo 2 MB.', 'erro');
+            evento.target.value = '';
+            return;
+        }
+
+        const leitor = new FileReader();
+        leitor.onload = () => {
+            fotoTemporaria = String(leitor.result);
+            atualizarFoto(fotoTemporaria);
+            mostrarToast('Prévia da foto atualizada.', 'sucesso');
+        };
+        leitor.onerror = () => mostrarToast('Não foi possível ler a imagem.', 'erro');
+        leitor.readAsDataURL(arquivo);
+    });
+
+    formPerfil.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        const nome = document.getElementById('edit-nome').value.trim();
+        const email = document.getElementById('edit-email').value.trim();
+
+        if (!nome) {
+            mostrarToast('Informe o nome completo.', 'erro');
+            document.getElementById('edit-nome').focus();
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            mostrarToast('Informe um e-mail válido.', 'erro');
+            document.getElementById('edit-email').focus();
+            return;
+        }
+
+        Object.assign(perfil, {
+            nome,
+            cargo: document.getElementById('edit-cargo').value.trim(),
+            email,
+            telefone: document.getElementById('edit-telefone').value.trim(),
+            foto: fotoTemporaria
+        });
+
+        mostrarVisaoPerfil();
+        mostrarToast('Perfil atualizado com sucesso.', 'sucesso');
+    });
+
+    document.getElementById('btn-cancelar-perfil').addEventListener('click', () => {
+        if (rascunhoPerfil) {
+            Object.assign(perfil, rascunhoPerfil);
+        }
+        fotoTemporaria = perfil.foto;
+        mostrarVisaoPerfil();
+        mostrarToast('Alterações descartadas.', 'info');
+    });
+
+    sincronizarPerfil();
+
+    /* Senha: validação local, força e exibição/ocultação. */
+    const formSenha = document.getElementById('form-senha');
+    const senhaAtual = document.getElementById('senha-atual');
+    const senhaNova = document.getElementById('senha-nova');
+    const senhaConfirmar = document.getElementById('senha-confirmar');
+    const forcaSenha = document.getElementById('forca-senha');
+    const forcaRotulo = document.getElementById('forca-rotulo');
+    const barrasForca = Array.from(forcaSenha.querySelectorAll('.forca-barras span'));
+    const rotulosForca = ['Digite uma nova senha', 'Fraca', 'Razoável', 'Boa', 'Forte'];
+
+    function atualizarForca(valor) {
+        let pontos = 0;
+
+        if (valor.length >= 10) {
+            pontos += 1;
+        }
+        if (valor.length >= 12) {
+            pontos += 1;
+        }
+        if (/[a-z]/.test(valor) && /[A-Z]/.test(valor)) {
+            pontos += 1;
+        }
+        if (/\d/.test(valor)) {
+            pontos += 1;
+        }
+        if (/[^A-Za-z0-9]/.test(valor)) {
+            pontos += 1;
+        }
+
+        const nivel = valor ? Math.max(1, Math.min(4, pontos)) : 0;
+        forcaSenha.dataset.nivel = String(nivel);
+        forcaRotulo.textContent = rotulosForca[nivel];
+        barrasForca.forEach((barra, indice) => barra.classList.toggle('ativo', indice < nivel));
+    }
+
+    senhaNova.addEventListener('input', () => atualizarForca(senhaNova.value));
+
+    document.querySelectorAll('[data-toggle-senha]').forEach((botao) => {
+        botao.addEventListener('click', () => {
+            const campo = document.getElementById(botao.dataset.toggleSenha);
+            const mostrar = campo.type === 'password';
+            campo.type = mostrar ? 'text' : 'password';
+            botao.setAttribute('aria-label', mostrar ? 'Ocultar' : 'Mostrar');
+            botao.querySelector('i').className = mostrar
+                ? 'fa-solid fa-eye-slash'
+                : 'fa-solid fa-eye';
+        });
+    });
+
+    formSenha.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        if (!senhaAtual.value.trim()) {
+            mostrarToast('Informe a senha atual.', 'erro');
+            senhaAtual.focus();
+            return;
+        }
+
+        if (!/^(?=.*[A-Za-z])(?=.*\d).{10,}$/.test(senhaNova.value)) {
+            mostrarToast('A nova senha precisa ter 10 ou mais caracteres, letras e números.', 'erro');
+            senhaNova.focus();
+            return;
+        }
+
+        if (senhaNova.value === senhaAtual.value) {
+            mostrarToast('A nova senha deve ser diferente da atual.', 'erro');
+            senhaNova.focus();
+            return;
+        }
+
+        if (senhaNova.value !== senhaConfirmar.value) {
+            mostrarToast('As novas senhas não coincidem.', 'erro');
+            senhaConfirmar.focus();
+            return;
+        }
+
+        formSenha.reset();
+        atualizarForca('');
+        mostrarToast('Senha alterada com sucesso (simulação).', 'sucesso');
+    });
+
+    /* Sessões ativas: remoção visual e estado vazio. */
+    function verificarSessoes() {
+        document.getElementById('sessoes-vazio').hidden = document.querySelector('#lista-sessoes [data-sessao]') !== null;
+    }
+
+    document.querySelectorAll('[data-encerrar-sessao]').forEach((botao) => {
+        botao.addEventListener('click', () => {
+            botao.closest('[data-sessao]').remove();
+            verificarSessoes();
+            mostrarToast('Sessão encerrada (simulação).', 'info');
+        });
+    });
+
+    document.getElementById('btn-encerrar-outras').addEventListener('click', () => {
+        const outras = document.querySelectorAll('#lista-sessoes [data-sessao]:not([data-atual="true"])');
+
+        if (!outras.length) {
+            mostrarToast('Não há outras sessões ativas.', 'info');
+            return;
+        }
+
+        outras.forEach((sessao) => sessao.remove());
+        verificarSessoes();
+        mostrarToast('Outras sessões foram encerradas (simulação).', 'sucesso');
+    });
+
+    document.getElementById('twofa-ativo').addEventListener('change', (evento) => {
+        mostrarToast(evento.target.checked
+            ? 'Autenticação em duas etapas ativada (simulação).'
+            : 'Autenticação em duas etapas desativada (simulação).');
+    });
+
+    document.getElementById('btn-copiar-chave').addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText('demo-2fa-local');
+            mostrarToast('Chave copiada.', 'sucesso');
+        } catch (erro) {
+            mostrarToast('Chave de demonstração: demo-2fa-local', 'info');
+        }
+    });
+
+    /* Aparência e preferências. */
+    function definirDensidade(densidade) {
+        document.querySelectorAll('[data-densidade]').forEach((botao) => {
+            const ativa = botao.dataset.densidade === densidade;
+            botao.classList.toggle('opcao-ativa', ativa);
+            botao.setAttribute('aria-pressed', String(ativa));
+        });
+        pagina.classList.toggle('densidade-compacta', densidade === 'compacto');
+    }
+
+    document.querySelectorAll('[data-densidade]').forEach((botao) => {
+        botao.addEventListener('click', () => {
+            definirDensidade(botao.dataset.densidade);
+            mostrarToast(`Densidade ${botao.dataset.densidade} selecionada.`);
+        });
+    });
+
+    document.querySelectorAll('input[name="tema"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                mostrarToast(`Tema ${radio.dataset.rotulo} selecionado (simulação).`);
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-preferencia]').forEach((campo) => {
+        campo.addEventListener('change', () => mostrarToast('Preferência atualizada (simulação).'));
+    });
+
+    /* Notificações. */
+    document.getElementById('btn-ativar-notificacoes').addEventListener('click', () => {
+        document.querySelectorAll('#tabela-notificacoes input[type="checkbox"]').forEach((caixa) => {
+            caixa.checked = true;
+        });
+        mostrarToast('Todas as notificações foram ativadas.', 'sucesso');
+    });
+
+    function atualizarVolume() {
+        document.getElementById('volume-valor').textContent = `${document.getElementById('volume-alerta').value}%`;
+    }
+
+    document.getElementById('volume-alerta').addEventListener('input', atualizarVolume);
+    atualizarVolume();
+
+    document.getElementById('btn-testar-som').addEventListener('click', () => {
+        const volume = Number(document.getElementById('volume-alerta').value);
+
+        try {
+            const ContextoAudio = window.AudioContext || window.webkitAudioContext;
+            if (!ContextoAudio) {
+                throw new Error('Áudio indisponível');
+            }
+
+            const contexto = new ContextoAudio();
+            const oscilador = contexto.createOscillator();
+            const ganho = contexto.createGain();
+            const agora = contexto.currentTime;
+            const pico = Math.max(0.001, (volume / 100) * 0.2);
+
+            oscilador.type = 'sine';
+            oscilador.frequency.value = 660;
+            ganho.gain.setValueAtTime(0.001, agora);
+            ganho.gain.exponentialRampToValueAtTime(pico, agora + 0.02);
+            ganho.gain.exponentialRampToValueAtTime(0.001, agora + 0.25);
+            oscilador.connect(ganho);
+            ganho.connect(contexto.destination);
+            oscilador.start(agora);
+            oscilador.stop(agora + 0.26);
+            oscilador.onended = () => contexto.close();
+
+            mostrarToast('Som de alerta reproduzido.');
+        } catch (erro) {
+            mostrarToast('Não foi possível reproduzir o som.', 'erro');
+        }
+    });
+
+    /* Regras operacionais. */
+    function atualizarPreviaCodigo() {
+        const prefixo = document.getElementById('prefixo-pedido').value.trim();
+        const sequencia = Number(document.getElementById('sequencia-pedido').value) || 0;
+        document.getElementById('previa-codigo').textContent = `${prefixo}${String(sequencia).padStart(6, '0')}`;
+    }
+
+    document.getElementById('prefixo-pedido').addEventListener('input', atualizarPreviaCodigo);
+    document.getElementById('sequencia-pedido').addEventListener('input', atualizarPreviaCodigo);
+    atualizarPreviaCodigo();
+
+    function atualizarDesconto() {
+        document.getElementById('desconto-valor').textContent = `${document.getElementById('desconto-limite').value}%`;
+    }
+
+    document.getElementById('desconto-limite').addEventListener('input', atualizarDesconto);
+    atualizarDesconto();
+
+    /* Empresa e documentos. */
+    const logoInput = document.getElementById('logo-input');
+
+    logoInput.addEventListener('change', (evento) => {
+        const arquivo = evento.target.files[0];
+        if (!arquivo) {
+            return;
+        }
+
+        if (!arquivo.type.startsWith('image/') || arquivo.size > 2 * 1024 * 1024) {
+            mostrarToast('Escolha uma imagem de até 2 MB.', 'erro');
+            evento.target.value = '';
+            return;
+        }
+
+        const leitor = new FileReader();
+        leitor.onload = () => {
+            document.getElementById('logo-preview').src = String(leitor.result);
+            document.getElementById('logo-preview').hidden = false;
+            document.getElementById('logo-placeholder').hidden = true;
+            mostrarToast('Logotipo atualizado na prévia.', 'sucesso');
+        };
+        leitor.onerror = () => mostrarToast('Não foi possível ler a imagem.', 'erro');
+        leitor.readAsDataURL(arquivo);
+    });
+
+    document.querySelectorAll('input[name="impressao"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                mostrarToast(radio.value === 'a4' ? 'Formato A4 selecionado.' : 'Bobina térmica selecionada.');
+            }
+        });
+    });
+
+    /* Usuários e sistema. */
+    document.getElementById('btn-novo-perfil').addEventListener('click', () => {
+        mostrarToast('Criação de perfil disponível apenas no backend.', 'info');
+    });
+
+    document.querySelectorAll('[data-testar-integracao]').forEach((botao) => {
+        botao.addEventListener('click', () => {
+            mostrarToast(`Conexão com ${botao.dataset.testarIntegracao} simulada com sucesso.`, 'sucesso');
+        });
+    });
+
+    const registrosAuditoria = [
+        { usuario: 'Operador', acao: 'Atualização de preferências', origem: 'Navegador local', data: 'Hoje, 14:32' },
+        { usuario: 'Administrador', acao: 'Alteração de alçada de desconto', origem: 'Navegador local', data: 'Hoje, 11:15' },
+        { usuario: 'Sistema', acao: 'Rotina de backup simulada', origem: 'Ambiente local', data: 'Hoje, 03:00' }
+    ];
+
+    function exportarAuditoria(formato) {
+        const conteudo = formato === 'csv'
+            ? '\uFEFF' + [
+                'Usuario;Acao;Origem;Data',
+                ...registrosAuditoria.map((registro) => [
+                    registro.usuario,
+                    registro.acao,
+                    registro.origem,
+                    registro.data
+                ].join(';'))
+            ].join('\n')
+            : JSON.stringify(registrosAuditoria, null, 2);
+
+        const tipo = formato === 'csv' ? 'text/csv;charset=utf-8' : 'application/json';
+        const url = URL.createObjectURL(new Blob([conteudo], { type: tipo }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `auditoria.${formato}`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+        mostrarToast(`Arquivo ${formato.toUpperCase()} gerado localmente.`, 'sucesso');
+    }
+
+    document.getElementById('btn-exportar-csv').addEventListener('click', () => exportarAuditoria('csv'));
+    document.getElementById('btn-exportar-json').addEventListener('click', () => exportarAuditoria('json'));
+
+    /* Ações globais do cabeçalho. */
+    function restaurarPadroes() {
+        document.querySelector('input[name="tema"][value="claro"]').checked = true;
+        definirDensidade('confortavel');
+        document.getElementById('itens-pagina').value = '25';
+        document.getElementById('modulo-inicial').value = 'dashboard';
+        document.getElementById('fuso-horario').value = 'America/Sao_Paulo';
+        document.getElementById('formato-data').value = 'ddmmaaaa';
+        document.getElementById('moeda').value = 'BRL';
+        document.getElementById('twofa-ativo').checked = true;
+
+        document.querySelectorAll('#tabela-notificacoes input[type="checkbox"]').forEach((caixa) => {
+            caixa.checked = true;
+        });
+        document.getElementById('som-alerta').value = 'suave';
+        document.getElementById('volume-alerta').value = '75';
+        document.getElementById('nao-perturbar').checked = true;
+        atualizarVolume();
+
+        document.getElementById('prefixo-pedido').value = '#PDV-';
+        document.getElementById('sequencia-pedido').value = '1';
+        atualizarPreviaCodigo();
+        document.querySelectorAll('#painel-regras .linha-config input[type="checkbox"]').forEach((caixa, indice) => {
+            caixa.checked = indice !== 3;
+        });
+        document.getElementById('desconto-limite').value = '10';
+        atualizarDesconto();
+
+        document.querySelector('input[name="impressao"][value="a4"]').checked = true;
+        document.querySelectorAll('#painel-empresa input[type="checkbox"]').forEach((caixa, indice) => {
+            caixa.checked = indice !== 3;
+        });
+
+        mostrarToast('Padrões restaurados (simulação).', 'info');
+    }
+
+    document.getElementById('btn-restaurar-config').addEventListener('click', restaurarPadroes);
+    document.getElementById('btn-salvar-config').addEventListener('click', () => {
+        mostrarToast('Preferências salvas localmente (simulação).', 'sucesso');
+    });
+
+</script>
+</body>
+</html>

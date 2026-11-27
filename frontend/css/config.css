@@ -1,0 +1,605 @@
+
+/* Estilos específicos desta página, usando somente os tokens de dashboard.css. */
+#config-page [hidden] {
+    display: none !important;
+}
+
+#config-page .config-layout {
+    display: grid;
+    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+#config-page .config-nav {
+    padding: 12px;
+}
+
+#config-page .config-nav-titulo {
+    padding: 6px 10px 12px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+#config-page .config-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#config-page .aba-config {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--cor-primaria);
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#config-page .aba-config:hover {
+    background-color: rgba(229, 196, 107, 0.2);
+}
+
+#config-page .aba-config[aria-selected="true"] {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+#config-page .aba-config > i {
+    width: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: var(--cor-texto-suave);
+}
+
+#config-page .aba-config[aria-selected="true"] > i {
+    color: var(--cor-destaque);
+}
+
+#config-page .aba-config strong {
+    display: block;
+    font-weight: 600;
+}
+
+#config-page .aba-config small {
+    display: block;
+    margin-top: 2px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#config-page .aba-config[aria-selected="true"] small {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#config-page .config-status {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+#config-page .config-status strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--cor-primaria);
+    font-size: 13px;
+}
+
+#config-page .painel-config {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#config-page .config-grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#config-page .config-grade-3,
+#config-page .config-linha-campos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#config-page .perfil-topo {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+#config-page .avatar-area {
+    text-align: center;
+}
+
+#config-page .avatar-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 104px;
+    margin: 0 auto 8px;
+    border: 3px solid var(--cor-destaque);
+    border-radius: 50%;
+    background-color: rgba(22, 33, 62, 0.08);
+    color: var(--cor-primaria);
+    font-size: 34px;
+    box-shadow: var(--sombra-cartao);
+}
+
+#config-page .avatar-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#config-page .avatar-acao {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--cor-primaria);
+    color: var(--cor-destaque);
+    cursor: pointer;
+    font-size: 13px;
+    transition: filter 0.15s ease;
+}
+
+#config-page .avatar-acao:hover {
+    filter: brightness(1.25);
+}
+
+#config-page .avatar-area small {
+    color: var(--cor-texto-suave);
+}
+
+#config-page .dados-leitura {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+}
+
+#config-page .dado-item {
+    min-width: 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+}
+
+#config-page .dado-item dt {
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+#config-page .dado-item dd {
+    margin: 4px 0 0;
+    color: var(--cor-primaria);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+#config-page .acoes-cartao {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+#config-page .campo-senha {
+    position: relative;
+}
+
+#config-page .campo-senha .campo {
+    padding-right: 42px;
+}
+
+#config-page .campo-senha .botao-icone {
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+}
+
+#config-page .forca-senha {
+    margin-top: 12px;
+}
+
+#config-page .forca-senha-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+#config-page .forca-senha-cabecalho strong {
+    color: var(--cor-primaria);
+}
+
+#config-page .forca-barras {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+}
+
+#config-page .forca-barras span {
+    height: 7px;
+    border-radius: 30px;
+    background-color: var(--cor-borda);
+    transition: background-color 0.15s ease;
+}
+
+#config-page .forca-barras span.ativo {
+    background-color: var(--cor-forca, var(--cor-destaque));
+}
+
+#config-page .forca-senha[data-nivel="1"] {
+    --cor-forca: var(--cor-erro);
+}
+
+#config-page .forca-senha[data-nivel="2"] {
+    --cor-forca: var(--cor-atencao);
+}
+
+#config-page .forca-senha[data-nivel="3"] {
+    --cor-forca: var(--cor-info);
+}
+
+#config-page .forca-senha[data-nivel="4"] {
+    --cor-forca: var(--cor-sucesso);
+}
+
+#config-page .lista-sessoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#config-page .sessao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+}
+
+#config-page .sessao-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+#config-page .sessao-info > i {
+    color: var(--cor-texto-suave);
+    font-size: 18px;
+}
+
+#config-page .sessao-info strong {
+    display: block;
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+#config-page .sessao-info small {
+    display: block;
+    margin-top: 2px;
+    color: var(--cor-texto-suave);
+}
+
+#config-page .opcoes-cartao {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#config-page .opcao-cartao {
+    position: relative;
+}
+
+#config-page .opcao-cartao input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#config-page .opcao-cartao > div {
+    height: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+#config-page .opcao-cartao > div:hover {
+    border-color: var(--cor-primaria);
+}
+
+#config-page .opcao-cartao input:checked + div {
+    border-color: var(--cor-primaria);
+    background-color: rgba(229, 196, 107, 0.18);
+    box-shadow: inset 0 0 0 1px var(--cor-primaria);
+}
+
+#config-page .opcao-cartao input:focus-visible + div {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+#config-page .opcao-cartao i {
+    color: var(--cor-primaria);
+    font-size: 22px;
+}
+
+#config-page .opcao-cartao strong {
+    display: block;
+    margin-top: 8px;
+    color: var(--cor-primaria);
+}
+
+#config-page .opcao-cartao small {
+    display: block;
+    margin-top: 4px;
+    color: var(--cor-texto-suave);
+}
+
+#config-page .botao-densidade {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
+    cursor: pointer;
+    font-weight: 600;
+    text-align: left;
+}
+
+#config-page .botao-densidade:hover,
+#config-page .botao-densidade.opcao-ativa {
+    border-color: var(--cor-primaria);
+    background-color: rgba(229, 196, 107, 0.18);
+}
+
+#config-page .botao-densidade small {
+    color: var(--cor-texto-suave);
+    font-weight: 400;
+}
+
+#config-page .linha-config {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--cor-borda);
+}
+
+#config-page .linha-config:last-child {
+    border-bottom: none;
+}
+
+#config-page .linha-config strong {
+    display: block;
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+#config-page .linha-config small {
+    display: block;
+    margin-top: 2px;
+    color: var(--cor-texto-suave);
+}
+
+#config-page .interruptor {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    flex: 0 0 42px;
+}
+
+#config-page .interruptor input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#config-page .interruptor .trilha {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #d5d5d5;
+    transition: background-color 0.15s ease;
+}
+
+#config-page .interruptor .trilha::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+#config-page .interruptor input:checked + .trilha {
+    background-color: var(--cor-primaria);
+}
+
+#config-page .interruptor input:checked + .trilha::after {
+    transform: translateX(18px);
+    background-color: var(--cor-destaque);
+}
+
+#config-page .interruptor input:focus-visible + .trilha {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+#config-page .tabela td {
+    white-space: normal;
+}
+
+#config-page .tabela td input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+#config-page .previa-codigo {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: rgba(229, 196, 107, 0.2);
+    color: var(--cor-primaria);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+#config-page .etiquetas-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#config-page .logo-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    overflow: hidden;
+    border: 1px dashed var(--cor-borda);
+    border-radius: 10px;
+    color: var(--cor-texto-suave);
+    font-size: 20px;
+}
+
+#config-page .logo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#config-page .integracao-item {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) minmax(180px, 1.4fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+}
+
+#config-page .integracao-item strong {
+    display: block;
+    color: var(--cor-primaria);
+}
+
+#config-page .integracao-item small {
+    display: block;
+    margin-top: 2px;
+    color: var(--cor-texto-suave);
+}
+
+#config-page.densidade-compacta .cartao {
+    padding: 12px;
+}
+
+#config-page.densidade-compacta .cartao-cabecalho {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 1180px) {
+    #config-page .config-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #config-page .config-nav nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    #config-page .aba-config {
+        flex: 0 0 auto;
+        min-width: 190px;
+    }
+}
+
+@media (max-width: 900px) {
+    #config-page .config-grade,
+    #config-page .config-grade-3,
+    #config-page .config-linha-campos,
+    #config-page .opcoes-cartao,
+    #config-page .integracao-item {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    #config-page .perfil-topo {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: center;
+    }
+
+    #config-page .dados-leitura {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #config-page .acoes-cartao {
+        justify-content: stretch;
+    }
+
+    #config-page .acoes-cartao .botao {
+        flex: 1 1 auto;
+    }
+
+    #config-page .linha-config {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+}
