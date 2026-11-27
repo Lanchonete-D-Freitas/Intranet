@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Pedido de Venda | Lanchonete D'Freitas</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/x-icon" href="../imagens/magagu.png">
+</head>
+<body>
+    <div id="app">
+        <div id="dashboard-layout">
+            <div id="sidebar-overlay" class="sidebar-overlay" hidden aria-hidden="true"></div>
+
+            <aside id="sidebar" aria-label="Menu principal">
+                <div id="menu">
+                    <nav id="menu-nav">
+                        <button
+                            id="botao-menu"
+                            class="botao-menu"
+                            type="button"
+                            aria-controls="menu-nav"
+                            aria-expanded="false"
+                            aria-label="Expandir menu"
+                        >
+                            <i id="sandwich" class="fa-solid fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <div class="marca-sidebar">
+                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                            <span>Lanchonete D'Freitas</span>
+                        </div>
+                        <ul id="ul_">
+                            <li>
+                                <a href="home.html" data-item-menu="home" data-tooltip="Home Page" aria-label="Home Page">
+                                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                                    <span>Home Page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pedidos.html" data-item-menu="pedidos" data-tooltip="Pedidos" aria-label="Pedidos" aria-current="page">
+                                    <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                                    <span>Pedidos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-item-menu="clientes" data-tooltip="Clientes" aria-label="Clientes" aria-disabled="true" title="Funcionalidade indisponível">
+                                    <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                                    <span>Clientes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#vendas" data-item-menu="relatorios" data-tooltip="Relatórios" aria-label="Relatórios">
+                                    <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                                    <span>Relatórios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-item-menu="configuracoes" data-tooltip="Config." aria-label="Config." aria-disabled="true" title="Funcionalidade indisponível">
+                                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                                    <span>Config.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html" data-item-menu="sair" data-tooltip="Sair" aria-label="Sair">
+                                    <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                                    <span>Sair</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <div id="conteudo">
+                <header id="header-home">
+                    <div class="elementos_esquerda">
+                        <span class="marca-header">Lanchonete D'Freitas</span>
+                    </div>
+
+                    <div class="elementos_centrais">
+                        <label class="sr-only" for="pesquisa-global">Pesquisar pedidos</label>
+                        <input
+                            class="barra_pesquisa"
+                            id="pesquisa-global"
+                            type="search"
+                            placeholder="Pesquisar (Ctrl+K)"
+                            autocomplete="off"
+                        >
+                        <button id="search" type="button" aria-label="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="elementos_direita">
+                        <div id="indicador-conexao" class="indicador-conexao" role="status">
+                            <i class="fa-solid fa-circle" aria-hidden="true"></i>
+                            <span>Conectado</span>
+                        </div>
+
+                        <div class="area-notificacoes">
+                            <button
+                                id="botao-notificacoes"
+                                class="botao-icone"
+                                type="button"
+                                aria-label="Notificações"
+                                aria-expanded="false"
+                                aria-controls="painel-notificacoes"
+                            >
+                                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                                <span class="badge">0</span>
+                            </button>
+                            <div id="painel-notificacoes" class="painel-notificacoes" hidden>
+                                <strong>Notificações</strong>
+                                <p>Nenhuma notificação disponível.</p>
+                            </div>
+                        </div>
+
+                        <button id="botao-novo-pedido" class="botao botao-destaque" type="button">
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i> Novo pedido
+                        </button>
+
+                        <a class="link-perfil" href="perfil.html">
+                            <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+                            <span>Olá, usuário</span>
+                        </a>
+                    </div>
+                </header>
+
+                <div class="conteudo-interno">
+                    <div id="dashboard-header" class="dashboard-header">
+                        <div>
+                            <div class="breadcrumb">
+                                <a href="pedidos.html">Pedidos</a>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                                <span>Novo Pedido de Venda</span>
+                            </div>
+                            <h1>Emissão de Pedido de Venda</h1>
+                            <div class="linha-acoes">
+                                <span id="numero-pedido" class="etiqueta etiqueta-atencao">Rascunho #ORD-2025-0894</span>
+                                <span class="texto-suave">
+                                    <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                                    <span id="data-pedido">Hoje, 14:32 (Horário de Brasília)</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="linha-acoes">
+                            <button id="btn-descartar" class="botao botao-secundario" type="button" title="Cancelar criação de pedido">
+                                <i class="fa-solid fa-xmark" aria-hidden="true"></i> Descartar
+                            </button>
+                            <button id="btn-salvar-rascunho" class="botao botao-secundario" type="button" title="Salvar progresso atual">
+                                <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar Rascunho
+                            </button>
+                            <button id="btn-proposta" class="botao botao-secundario" type="button" title="Gerar proposta comercial">
+                                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Proposta Comercial
+                            </button>
+                            <button id="btn-finalizar" class="botao botao-destaque" type="button">
+                                <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Finalizar e Faturar
+                            </button>
+                        </div>
+                    </div>
+
+                    <main id="main_pedidos">
+                        <div class="grade-pedidos">
+                            <div class="coluna-pedidos">
+                                <section class="cartao" aria-labelledby="titulo-cliente">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-cliente">1. Identificação do Cliente &amp; Canal</h2>
+                                            <p>Selecione o parceiro comercial e os parâmetros de canal</p>
+                                        </div>
+                                        <button id="btn-novo-cliente" class="botao botao-secundario botao-pequeno" type="button">
+                                            <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Novo Cliente
+                                        </button>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="cartao cliente-selecionado">
+                                            <div class="cliente-cabecalho">
+                                                <div>
+                                                    <strong id="cliente-nome">TechSul Distribuidora e Logística Ltda.</strong>
+                                                    <span id="cliente-tier" class="etiqueta etiqueta-info">VIP Tier 1</span>
+                                                </div>
+                                                <button id="btn-alterar-cliente" class="botao botao-secundario botao-pequeno" type="button">
+                                                    <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i> Alterar
+                                                </button>
+                                            </div>
+                                            <div class="linha-acoes texto-suave">
+                                                <span id="cliente-cnpj">CNPJ: 12.345.678/0001-90</span>
+                                                <span id="cliente-ie">IE: 254.981.002-PR</span>
+                                                <span id="cliente-credito-valor" class="credito-disponivel">
+                                                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                                                    Crédito Disp: R$ 50.000,00
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="grade-formulario">
+                                            <div class="campo-grupo">
+                                                <label for="endereco-entrega">Endereço de Entrega Cadastrado</label>
+                                                <select id="endereco-entrega" class="campo">
+                                                    <option value="cd-sjp">CD São José dos Pinhais - Rod. BR 376, KM 14</option>
+                                                    <option value="matriz">Filial Matriz - Av. Cândido de Abreu, 526 - Curitiba/PR</option>
+                                                    <option value="temporario">+ Inserir endereço temporário de obra</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="canal-origem">Canal de Origem</label>
+                                                <select id="canal-origem" class="campo">
+                                                    <option value="representante">Representante B2B (Regional Sul)</option>
+                                                    <option value="ecommerce">E-Commerce B2B Portal</option>
+                                                    <option value="televendas">Televendas Ativa</option>
+                                                    <option value="balcao">Balcão Matriz</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo campo-largo">
+                                                <label for="tabela-preco">Tabela de Preço Vigente</label>
+                                                <select id="tabela-preco" class="campo">
+                                                    <option value="atacado">Tabela Atacado Especial (ICMS Incluso)</option>
+                                                    <option value="distribuicao">Tabela Distribuição 2025</option>
+                                                    <option value="promocional">Tabela Promocional Q1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section id="pedidos" class="cartao" aria-labelledby="titulo-itens">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-itens">2. Itens do Pedido &amp; Mercadorias</h2>
+                                            <p id="resumo-itens">3 itens adicionados • Peso total: 6,40 kg</p>
+                                        </div>
+                                        <div class="linha-acoes">
+                                            <button id="btn-importar" class="botao botao-secundario botao-pequeno" type="button">
+                                                <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Importar Planilha
+                                            </button>
+                                            <button id="btn-repetir" class="botao botao-secundario botao-pequeno" type="button">
+                                                <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Repetir Último
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="cartao insercao-item">
+                                            <div class="campo-grupo">
+                                                <label class="sr-only" for="busca-produto">Localizar SKU, código de barras ou nome</label>
+                                                <div class="campo-com-icone">
+                                                    <i class="fa-solid fa-barcode" aria-hidden="true"></i>
+                                                    <input
+                                                        id="busca-produto"
+                                                        class="campo"
+                                                        list="produtos-disponiveis"
+                                                        autocomplete="off"
+                                                        type="text"
+                                                        placeholder="Localizar SKU, código de barras ou nome"
+                                                    >
+                                                    <datalist id="produtos-disponiveis"></datalist>
+                                                </div>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label class="sr-only" for="qtd-inserir">Quantidade</label>
+                                                <input id="qtd-inserir" class="campo campo-quantidade" type="number" min="1" step="1" value="10">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label class="sr-only" for="preco-inserir">Preço unitário</label>
+                                                <input id="preco-inserir" class="campo campo-valor" type="text" inputmode="decimal" placeholder="Preço unitário" aria-label="Preço unitário">
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label class="sr-only" for="desconto-inserir">Desconto percentual</label>
+                                                <input id="desconto-inserir" class="campo campo-quantidade" type="number" min="0" max="100" step="0.01" value="0" aria-label="Desconto percentual">
+                                            </div>
+                                            <button id="btn-inserir-item" class="botao botao-destaque" type="button">
+                                                <i class="fa-solid fa-plus" aria-hidden="true"></i> Inserir
+                                            </button>
+                                        </div>
+                                        <div id="mensagem-itens" class="alerta alerta-erro" role="alert" hidden></div>
+                                        <div class="tabela-responsiva">
+                                            <table class="tabela">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Produto / Descrição</th>
+                                                        <th scope="col">NCM / Fiscal</th>
+                                                        <th scope="col">Estoque</th>
+                                                        <th scope="col">Qtd.</th>
+                                                        <th scope="col">Unitário</th>
+                                                        <th scope="col">Desc.</th>
+                                                        <th scope="col">Total Item</th>
+                                                        <th scope="col"><span class="sr-only">Ações</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="itens-tabela"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-pagamento">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-pagamento">3. Pagamento &amp; Condições Comerciais</h2>
+                                            <p>Defina o faturamento, prazos e meios de liquidação</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="opcoes-pagamento">
+                                            <label class="opcao-pagamento">
+                                                <input type="radio" name="payment_method" value="boleto" checked>
+                                                <span>
+                                                    <strong>Boleto Faturado</strong>
+                                                    <small>Prazo 30/60/90 dias</small>
+                                                </span>
+                                            </label>
+                                            <label class="opcao-pagamento">
+                                                <input type="radio" name="payment_method" value="pix">
+                                                <span>
+                                                    <strong>PIX Instantâneo</strong>
+                                                    <small>3% de desconto adicional</small>
+                                                </span>
+                                            </label>
+                                            <label class="opcao-pagamento">
+                                                <input type="radio" name="payment_method" value="cartao">
+                                                <span>
+                                                    <strong>Cartão Corporativo</strong>
+                                                    <small>Até 6x sem acréscimo</small>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="cartao cronograma">
+                                            <div class="cronograma-cabecalho">
+                                                <span id="titulo-parcelas" class="font-weight-600">Cronograma de Faturamento (3 Parcelas Fixas)</span>
+                                                <div class="linha-acoes">
+                                                    <label class="sr-only" for="parcelas-cartao">Quantidade de parcelas do cartão</label>
+                                                    <select id="parcelas-cartao" class="campo campo-parcelas" hidden>
+                                                        <option value="1">1x</option>
+                                                        <option value="2">2x</option>
+                                                        <option value="3" selected>3x</option>
+                                                        <option value="4">4x</option>
+                                                        <option value="5">5x</option>
+                                                        <option value="6">6x</option>
+                                                    </select>
+                                                    <button id="btn-personalizar-datas" class="botao botao-secundario botao-pequeno" type="button">
+                                                        <i class="fa-regular fa-calendar" aria-hidden="true"></i> Personalizar Datas
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div id="parcelas-container" class="parcelas-grade"></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-transporte">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-transporte">4. Transporte &amp; Frete</h2>
+                                            <p>Cotações das transportadoras cadastradas</p>
+                                        </div>
+                                        <div class="indicadores-logistica">
+                                            <div><span>Volumes</span><strong id="metricas-volumes">2 volumes</strong></div>
+                                            <div><span>Peso</span><strong id="metricas-peso">6,40 kg</strong></div>
+                                            <div><span>Cubagem</span><strong id="metricas-cubagem">0,038 m³</strong></div>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="grade-formulario">
+                                            <div class="campo-grupo">
+                                                <label for="tipo-frete">Tipo de Frete</label>
+                                                <select id="tipo-frete" class="campo">
+                                                    <option value="CIF">CIF - Pago pelo Remetente</option>
+                                                    <option value="FOB">FOB - Pago pelo Destinatário</option>
+                                                    <option value="retirada">Retirada no Balcão de Logística</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="opcoes-pagamento">
+                                            <label class="opcao-pagamento">
+                                                <input type="radio" name="shipping_carrier" value="total" checked>
+                                                <span>
+                                                    <strong>Total Express Rodoviário</strong>
+                                                    <small>Previsão: 3 dias úteis</small>
+                                                    <strong>R$ 42,50</strong>
+                                                </span>
+                                            </label>
+                                            <label class="opcao-pagamento">
+                                                <input type="radio" name="shipping_carrier" value="sedex">
+                                                <span>
+                                                    <strong>Correios SEDEX Express</strong>
+                                                    <small>Previsão: 1 dia útil</small>
+                                                    <strong>R$ 88,20</strong>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-fiscal">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-fiscal">5. Natureza Fiscal &amp; Observações</h2>
+                                            <p>Parâmetros para autorização da SEFAZ e registros internos</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="grade-formulario">
+                                            <div class="campo-grupo">
+                                                <label for="natureza-operacao">Natureza da Operação (NF-e)</label>
+                                                <select id="natureza-operacao" class="campo">
+                                                    <option value="5102">Venda de Mercadoria Adquirida de Terceiros (5102)</option>
+                                                    <option value="5910">Remessa em Bonificação / Doação (5910)</option>
+                                                    <option value="5912">Remessa para Mostruário / Demonstração (5912)</option>
+                                                </select>
+                                            </div>
+                                            <div class="campo-grupo">
+                                                <label for="vendedor">Vendedor Responsável</label>
+                                                <input id="vendedor" class="campo" type="text" value="Carlos Eduardo Martins (ID #142)" readonly>
+                                            </div>
+                                            <div class="campo-grupo campo-largo">
+                                                <label for="dados-fiscais">Dados Adicionais da NF-e (Visível no DANFE)</label>
+                                                <textarea id="dados-fiscais" class="campo" rows="2" placeholder="Informações de incentivos fiscais, número de empenho ou ordem de compra do comprador..."></textarea>
+                                            </div>
+                                            <div class="campo-grupo campo-largo">
+                                                <label for="observacoes-internas">Observações Internas</label>
+                                                <textarea id="observacoes-internas" class="campo" rows="2" placeholder="Instruções para a doca de expedição, embalagem reforçada ou particularidades do cliente..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <aside class="painel-lateral" aria-label="Resumo e auditoria do pedido">
+                                <section class="cartao" aria-labelledby="titulo-resumo">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-resumo">Resumo Financeiro</h2>
+                                            <p>Valores atualizados conforme o pedido</p>
+                                        </div>
+                                        <span class="etiqueta etiqueta-neutro">BRL (R$)</span>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="resumo-linha">
+                                            <span>Subtotal dos Produtos</span>
+                                            <span id="resumo-subtotal">R$ 4.280,00</span>
+                                        </div>
+                                        <div class="resumo-linha">
+                                            <span>Descontos Aplicados</span>
+                                            <span id="resumo-descontos">- R$ 150,00</span>
+                                        </div>
+                                        <div class="resumo-linha">
+                                            <span id="resumo-frete-label">Frete (Total Express)</span>
+                                            <span id="resumo-frete">+ R$ 42,50</span>
+                                        </div>
+                                        <div class="resumo-linha">
+                                            <span>Seguro &amp; Outras Despesas</span>
+                                            <span id="resumo-despesas">R$ 0,00</span>
+                                        </div>
+                                        <div class="campo-grupo">
+                                            <label class="sr-only" for="cupom-codigo">Cupom de Desconto</label>
+                                            <div class="controles-pedidos">
+                                                <input id="cupom-codigo" class="campo campo-pesquisa" type="text" placeholder="Cupom de Desconto" value="VIP-FIDELIDADE">
+                                                <button id="btn-aplicar-cupom" class="botao botao-secundario" type="button">Aplicar</button>
+                                            </div>
+                                            <small id="mensagem-cupom" class="texto-suave" hidden></small>
+                                        </div>
+                                        <div class="cartao">
+                                            <div class="resumo-linha">
+                                                <span>Impostos Embutidos (ICMS/PIS/COF)</span>
+                                                <span id="resumo-impostos">R$ 824,35</span>
+                                            </div>
+                                            <div class="resumo-linha">
+                                                <span>IPI Destacado</span>
+                                                <span id="resumo-ipi">R$ 0,00 (Isento)</span>
+                                            </div>
+                                        </div>
+                                        <div class="total-pedido">
+                                            <span>Total Líquido do Pedido</span>
+                                            <strong id="resumo-total">R$ 4.172,50</strong>
+                                            <small id="resumo-parcelas">3x R$ 1.390,83</small>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-auditoria">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-auditoria">Auditoria Pré-Emissão</h2>
+                                            <p>Indicadores do estado atual do pedido</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <ul id="auditoria-lista" class="lista-verificacao"></ul>
+                                        <div id="erros-auditoria" class="erros-formulario" hidden></div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-automacoes">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-automacoes">Automações</h2>
+                                            <p>Ações executadas após a confirmação</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div class="campo-grupo">
+                                            <label>
+                                                <input id="auto-nfe" type="checkbox" checked>
+                                                Emitir NF-e automaticamente após validação
+                                            </label>
+                                            <label>
+                                                <input id="auto-envio" type="checkbox" checked>
+                                                Enviar DANFE e Boleto por WhatsApp e E-mail
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-confirmar">
+                                    <div class="cartao-corpo">
+                                        <button id="btn-confirmar" class="botao botao-destaque botao-bloco" type="button">
+                                            <i class="fa-solid fa-check" aria-hidden="true"></i> Confirmar Pedido &amp; Avançar
+                                        </button>
+                                        <p class="atalho-texto">
+                                            Atalho rápido: <kbd>Ctrl + Enter</kbd>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="cartao" aria-labelledby="titulo-historico">
+                                    <div class="cartao-cabecalho">
+                                        <div>
+                                            <h2 id="titulo-historico">Histórico Recente do Cliente</h2>
+                                            <p>Pedidos já faturados</p>
+                                        </div>
+                                        <button id="btn-ver-crm" class="botao botao-secundario botao-pequeno" type="button">Ver CRM</button>
+                                    </div>
+                                    <div class="cartao-corpo">
+                                        <div id="historico-cliente" class="historico-cliente"></div>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <p class="noscript-mensagem">É necessário habilitar o JavaScript para utilizar o painel.</p>
+    </noscript>
+
+    <script type="module" src="../js /pedidos.js"></script>
+</body>
+</html>

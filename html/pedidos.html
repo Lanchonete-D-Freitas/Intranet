@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Pedidos | Lanchonete D'Freitas</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/gestao-pedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/x-icon" href="../imagens/magagu.png">
+</head>
+<body>
+    <div id="app">
+        <div id="dashboard-layout">
+            <div id="sidebar-overlay" class="sidebar-overlay" hidden aria-hidden="true"></div>
+
+            <aside id="sidebar" aria-label="Menu principal">
+                <div id="menu">
+                    <nav id="menu-nav">
+                        <button
+                            id="botao-menu"
+                            class="botao-menu"
+                            type="button"
+                            aria-controls="menu-nav"
+                            aria-expanded="false"
+                            aria-label="Expandir menu"
+                        >
+                            <i id="sandwich" class="fa-solid fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <div class="marca-sidebar">
+                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                            <span>Lanchonete D'Freitas</span>
+                        </div>
+                        <ul id="ul_">
+                            <li>
+                                <a href="home.html" data-item-menu="home" data-tooltip="Home Page" aria-label="Home Page">
+                                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                                    <span>Home Page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pedidos.html" data-item-menu="pedidos" data-tooltip="Pedidos" aria-label="Pedidos" aria-current="page">
+                                    <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                                    <span>Pedidos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-item-menu="clientes" data-tooltip="Clientes" aria-label="Clientes" aria-disabled="true" title="Funcionalidade indisponível">
+                                    <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                                    <span>Clientes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#vendas" data-item-menu="relatorios" data-tooltip="Relatórios" aria-label="Relatórios">
+                                    <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                                    <span>Relatórios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-item-menu="configuracoes" data-tooltip="Config." aria-label="Config." aria-disabled="true" title="Funcionalidade indisponível">
+                                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                                    <span>Config.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html" data-item-menu="sair" data-tooltip="Sair" aria-label="Sair">
+                                    <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                                    <span>Sair</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <div id="conteudo">
+                <header id="header-home">
+                    <div class="elementos_esquerda">
+                        <span class="marca-header">Lanchonete D'Freitas</span>
+                    </div>
+
+                    <div class="elementos_centrais">
+                        <label class="sr-only" for="pesquisa-global">Pesquisar pedidos</label>
+                        <input
+                            class="barra_pesquisa"
+                            id="pesquisa-global"
+                            type="search"
+                            placeholder="Pesquisar (Ctrl+K)"
+                            autocomplete="off"
+                        >
+                        <button id="search" type="button" aria-label="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="elementos_direita">
+                        <div id="indicador-conexao" class="indicador-conexao" role="status">
+                            <i class="fa-solid fa-circle" aria-hidden="true"></i>
+                            <span>Conectado</span>
+                        </div>
+
+                        <div class="area-notificacoes">
+                            <button
+                                id="botao-notificacoes"
+                                class="botao-icone"
+                                type="button"
+                                aria-label="Notificações"
+                                aria-expanded="false"
+                                aria-controls="painel-notificacoes"
+                            >
+                                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                                <span class="badge">0</span>
+                            </button>
+                            <div id="painel-notificacoes" class="painel-notificacoes" hidden>
+                                <strong>Notificações</strong>
+                                <p>Nenhuma notificação disponível.</p>
+                            </div>
+                        </div>
+
+                        <a class="link-perfil" href="perfil.html">
+                            <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+                            <span>Olá, usuário</span>
+                        </a>
+                    </div>
+                </header>
+
+                <div class="conteudo-interno">
+                    <div id="dashboard-header" class="dashboard-header">
+                        <div>
+                            <h1>Gestão de Pedidos</h1>
+                            <p>Acompanhe, filtre e gerencie os pedidos da operação.</p>
+                        </div>
+                        <div class="linha-acoes">
+                            <button id="btn-importar" class="botao botao-secundario" type="button">
+                                <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Importar
+                            </button>
+                            <button id="btn-exportar" class="botao botao-secundario" type="button">
+                                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Exportar CSV
+                            </button>
+                            <button id="botao-novo-pedido" class="botao botao-destaque" type="button">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i> Novo Pedido
+                            </button>
+                        </div>
+                    </div>
+
+                    <main id="main-gestao-pedidos">
+                        <section id="metricas" aria-label="Indicadores de pedidos"></section>
+
+                        <section id="filtros" class="cartao" aria-labelledby="titulo-filtros">
+                            <div class="cartao-cabecalho">
+                                <div>
+                                    <h2 id="titulo-filtros">Busca e filtros</h2>
+                                    <p>Localize pedidos por número, cliente, CPF/CNPJ ou chave NF-e.</p>
+                                </div>
+                            </div>
+                            <div class="cartao-corpo grade-filtros">
+                                <div class="campo-grupo campo-busca">
+                                    <label for="busca-pedidos">Buscar pedido</label>
+                                    <input
+                                        id="busca-pedidos"
+                                        class="campo"
+                                        type="search"
+                                        placeholder="Número, cliente, CPF/CNPJ ou chave NF-e"
+                                        autocomplete="off"
+                                    >
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="filtro-periodo">Período</label>
+                                    <select id="filtro-periodo" class="campo">
+                                        <option value="todos">Todos os períodos</option>
+                                        <option value="hoje">Hoje</option>
+                                        <option value="7-dias">Últimos 7 dias</option>
+                                        <option value="30-dias">Últimos 30 dias</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="filtro-status">Status do pedido</label>
+                                    <select id="filtro-status" class="campo">
+                                        <option value="todos">Todos os status</option>
+                                        <option value="aguardando_pagamento">Aguardando Pagamento</option>
+                                        <option value="em_separacao">Em Separação</option>
+                                        <option value="faturado">Faturado</option>
+                                        <option value="enviado">Enviado</option>
+                                        <option value="cancelado">Cancelado</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="filtro-canal">Canal</label>
+                                    <select id="filtro-canal" class="campo">
+                                        <option value="todos">Todos os canais</option>
+                                        <option value="representante">Representante</option>
+                                        <option value="ecommerce">E-commerce</option>
+                                        <option value="televendas">Televendas</option>
+                                        <option value="balcao">Balcão</option>
+                                        <option value="atacado">Atacado</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="filtro-pagamento">Pagamento</label>
+                                    <select id="filtro-pagamento" class="campo">
+                                        <option value="todos">Todas as formas</option>
+                                        <option value="pix">PIX</option>
+                                        <option value="boleto">Boleto</option>
+                                        <option value="cartao">Cartão Corporativo</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="filtro-status-fiscal">Status fiscal</label>
+                                    <select id="filtro-status-fiscal" class="campo">
+                                        <option value="todos">Todos</option>
+                                        <option value="emitida">Emitida</option>
+                                        <option value="pendente">Pendente</option>
+                                        <option value="contingencia">Contingência</option>
+                                        <option value="cancelada">Cancelada</option>
+                                    </select>
+                                </div>
+
+                                <button id="btn-limpar-filtros" class="botao botao-secundario" type="button">
+                                    <i class="fa-solid fa-eraser" aria-hidden="true"></i> Limpar filtros
+                                </button>
+                            </div>
+                        </section>
+
+                        <section id="lista-pedidos" class="cartao" aria-labelledby="titulo-lista-pedidos">
+                            <div class="cartao-cabecalho">
+                                <div>
+                                    <h2 id="titulo-lista-pedidos">Pedidos</h2>
+                                    <p id="resumo-lista-pedidos">Nenhum pedido carregado.</p>
+                                </div>
+                                <div class="linha-acoes">
+                                    <label class="texto-suave" for="registros-por-pagina">Exibir</label>
+                                    <select id="registros-por-pagina" class="campo" aria-label="Registros por página">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                    <span class="texto-suave">por página</span>
+                                </div>
+                            </div>
+
+                            <div class="cartao-corpo">
+                                <div
+                                    id="abas-pedidos"
+                                    class="abas-pedidos filtros-periodo"
+                                    role="tablist"
+                                    aria-label="Filtrar pedidos por status"
+                                >
+                                    <button type="button" class="filtro-periodo filtro-periodo-ativo" role="tab" data-aba="todos" aria-selected="true">Todos</button>
+                                    <button type="button" class="filtro-periodo" role="tab" data-aba="aguardando_pagamento" aria-selected="false">Aguardando Pagamento</button>
+                                    <button type="button" class="filtro-periodo" role="tab" data-aba="em_separacao" aria-selected="false">Em Separação</button>
+                                    <button type="button" class="filtro-periodo" role="tab" data-aba="faturado" aria-selected="false">Faturados</button>
+                                    <button type="button" class="filtro-periodo" role="tab" data-aba="enviado" aria-selected="false">Enviados</button>
+                                    <button type="button" class="filtro-periodo" role="tab" data-aba="cancelado" aria-selected="false">Cancelados</button>
+                                </div>
+
+                                <div id="barra-lote" class="barra-lote" hidden aria-live="polite">
+                                    <strong id="contador-selecionados">0 pedidos selecionados</strong>
+                                    <div class="linha-acoes">
+                                        <button type="button" class="botao botao-secundario botao-pequeno" data-lote="nfe">
+                                            <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Emitir NF-e em lote
+                                        </button>
+                                        <button type="button" class="botao botao-secundario botao-pequeno" data-lote="etiquetas">
+                                            <i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir etiquetas
+                                        </button>
+                                        <button type="button" class="botao botao-secundario botao-pequeno" data-lote="status">
+                                            <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i> Alterar status
+                                        </button>
+                                        <button type="button" class="botao botao-secundario botao-pequeno" data-lote="limpar">
+                                            <i class="fa-solid fa-xmark" aria-hidden="true"></i> Limpar seleção
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="area-tabela" class="tabela-responsiva">
+                                    <table class="tabela">
+                                        <caption class="sr-only">Pedidos disponíveis para gestão</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="coluna-selecao">
+                                                    <input
+                                                        id="selecionar-todos"
+                                                        type="checkbox"
+                                                        aria-label="Selecionar todos os pedidos filtrados"
+                                                        title="Selecionar todos os pedidos filtrados"
+                                                    >
+                                                </th>
+                                                <th scope="col">Pedido</th>
+                                                <th scope="col">Data/Hora</th>
+                                                <th scope="col">Cliente</th>
+                                                <th scope="col">CPF/CNPJ</th>
+                                                <th scope="col">Canal</th>
+                                                <th scope="col">Itens</th>
+                                                <th scope="col">Pagamento</th>
+                                                <th scope="col">Status fiscal</th>
+                                                <th scope="col">Status do pedido</th>
+                                                <th scope="col">Valor total</th>
+                                                <th scope="col"><span class="sr-only">Ações</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="linhas-pedidos"></tbody>
+                                    </table>
+                                </div>
+
+                                <div id="estado-tabela"></div>
+                                <div id="paginacao-pedidos" class="paginacao-container"></div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <p class="noscript-mensagem">É necessário habilitar o JavaScript para utilizar o painel.</p>
+    </noscript>
+
+    <script type="module" src="../js /gestao-pedidos.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* Estilos da gestão/listagem de pedidos.
+   Reaproveita os componentes e tokens definidos em dashboard.css e home.css. */
+
+#main-gestao-pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.linha-acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#barra-lote[hidden],
+#area-tabela[hidden],
+#painel-notificacoes[hidden],
+#sidebar-overlay[hidden] {
+    display: none !important;
+}
+
+.grade-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    align-items: end;
+}
+
+.grade-filtros .campo-busca {
+    grid-column: span 2;
+}
+
+.grade-filtros > .botao {
+    align-self: end;
+    white-space: nowrap;
+}
+
+#registros-por-pagina {
+    width: auto;
+    min-width: 76px;
+}
+
+.abas-pedidos {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.barra-lote {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: rgba(229, 196, 107, 0.2);
+    color: var(--cor-primaria);
+}
+
+#main-gestao-pedidos .coluna-selecao {
+    width: 44px;
+}
+
+#main-gestao-pedidos input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+#main-gestao-pedidos .tabela tbody tr.selecionada,
+#main-gestao-pedidos .tabela tbody tr.selecionada:hover {
+    background-color: rgba(229, 196, 107, 0.22);
+}
+
+#main-gestao-pedidos .tabela small {
+    display: block;
+    margin-top: 2px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+#main-gestao-pedidos .valor-tabela {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    text-align: right;
+}
+
+#main-gestao-pedidos .botao-pagina-ativa {
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+}
+
+@media (max-width: 900px) {
+    .grade-filtros .campo-busca {
+        grid-column: auto;
+    }
+
+    .grade-filtros > .botao {
+        width: 100%;
+    }
+}
+
+@media print {
+    #sidebar,
+    #header-home,
+    #metricas,
+    #filtros,
+    .abas-pedidos,
+    #barra-lote,
+    #paginacao-pedidos,
+    .acoes-modal {
+        display: none !important;
+    }
+
+    #dashboard-layout,
+    #dashboard-layout.menu-expandido {
+        --largura-sidebar: 0px;
+    }
+
+    #conteudo {
+        margin-left: 0;
+    }
+
+    .conteudo-interno {
+        padding: 0;
+    }
+
+    #main-gestao-pedidos {
+        margin-top: 0;
+    }
+
+    #lista-pedidos {
+        box-shadow: none;
+    }
+
+    .modal-overlay {
+        position: static;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .modal {
+        max-height: none;
+        box-shadow: none;
+    }
+}

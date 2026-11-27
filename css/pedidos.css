@@ -1,0 +1,504 @@
+/* Estilos específicos da emissão de pedidos.
+   Usa apenas os componentes e variáveis já definidos em dashboard.css/home.css. */
+
+[hidden] {
+    display: none !important;
+}
+
+#main_pedidos {
+    margin-top: 24px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.breadcrumb a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--cor-destaque);
+}
+
+.linha-acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.grade-pedidos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 20px;
+    align-items: start;
+}
+
+.coluna-pedidos,
+.painel-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.painel-lateral {
+    position: sticky;
+    top: 84px;
+}
+
+.cliente-selecionado {
+    background-color: var(--cor-fundo);
+    box-shadow: none;
+}
+
+.cliente-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.cliente-cabecalho > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.credito-disponivel {
+    color: var(--cor-sucesso);
+    font-weight: 600;
+}
+
+.insercao-item {
+    display: grid;
+    grid-template-columns: minmax(220px, 2fr) 100px 140px 100px auto;
+    gap: 10px;
+    align-items: end;
+    padding: 14px;
+    background-color: var(--cor-fundo);
+    box-shadow: none;
+}
+
+.campo-com-icone {
+    position: relative;
+}
+
+.campo-com-icone i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    color: var(--cor-texto-suave);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.campo-com-icone .campo {
+    padding-left: 34px;
+}
+
+.campo-valor {
+    text-align: right;
+}
+
+.campo-quantidade {
+    text-align: center;
+}
+
+.campo-tabela {
+    min-width: 0;
+    padding: 6px 8px;
+    text-align: center;
+}
+
+.tabela td {
+    vertical-align: middle;
+}
+
+.item-produto,
+.item-fiscal {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.item-produto strong,
+.item-fiscal span {
+    color: var(--cor-primaria);
+}
+
+.item-produto small,
+.item-fiscal small,
+.texto-suave small {
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.texto-erro {
+    color: var(--cor-erro) !important;
+}
+
+.opcoes-pagamento {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.indicadores-logistica {
+    flex: 1;
+    min-width: 260px;
+    margin-bottom: 0;
+}
+
+.opcao-pagamento {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.opcao-pagamento:hover {
+    border-color: var(--cor-destaque);
+    background-color: rgba(229, 196, 107, 0.12);
+}
+
+.opcao-pagamento.selecionada {
+    border-color: var(--cor-primaria);
+    background-color: rgba(229, 196, 107, 0.2);
+    box-shadow: inset 0 0 0 1px var(--cor-primaria);
+}
+
+.opcao-pagamento input {
+    margin-top: 3px;
+    accent-color: var(--cor-primaria);
+}
+
+.opcao-pagamento > span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.opcao-pagamento small {
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.cronograma {
+    background-color: var(--cor-fundo);
+    box-shadow: none;
+}
+
+.cronograma-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.campo-parcelas {
+    width: auto;
+    min-width: 76px;
+}
+
+.parcelas-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.parcela-cartao {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-superficie);
+}
+
+.parcela-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.parcela-valor {
+    color: var(--cor-primaria);
+    font-size: 16px;
+}
+
+.parcela-data {
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.resumo-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--cor-borda);
+    font-size: 13px;
+}
+
+.resumo-linha:last-child {
+    border-bottom: none;
+}
+
+.resumo-linha span:last-child {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.total-pedido {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 8px;
+    background-color: rgba(229, 196, 107, 0.25);
+}
+
+.total-pedido span,
+.total-pedido strong {
+    color: var(--cor-primaria);
+}
+
+.total-pedido strong {
+    font-size: 22px;
+}
+
+.total-pedido small {
+    color: var(--cor-texto-suave);
+}
+
+.lista-verificacao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-verificacao li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.verificacao-ok i {
+    color: var(--cor-sucesso);
+}
+
+.verificacao-erro i,
+.verificacao-erro span {
+    color: var(--cor-erro);
+}
+
+.atalho-texto {
+    margin-top: 10px;
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+    text-align: center;
+}
+
+.atalho-texto kbd {
+    padding: 2px 6px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-primaria);
+    font-family: inherit;
+}
+
+.historico-cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.historico-pedido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+}
+
+.historico-pedido div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.historico-pedido strong {
+    color: var(--cor-primaria);
+}
+
+.historico-pedido small {
+    color: var(--cor-texto-suave);
+    font-size: 12px;
+}
+
+.lista-opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcao-cliente {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+}
+
+.opcao-cliente div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.opcao-cliente strong {
+    color: var(--cor-primaria);
+}
+
+.opcao-cliente small {
+    color: var(--cor-texto-suave);
+}
+
+.toast-sucesso {
+    background-color: var(--cor-sucesso);
+}
+
+.toast-info {
+    background-color: var(--cor-primaria);
+}
+
+.acoes-modal a.botao {
+    text-decoration: none;
+}
+
+@media (max-width: 1280px) {
+    .grade-pedidos {
+        grid-template-columns: minmax(0, 1fr) 310px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .grade-pedidos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .painel-lateral {
+        position: static;
+    }
+}
+
+@media (max-width: 900px) {
+    .conteudo-interno {
+        padding: 18px 14px 32px;
+    }
+
+    #main_pedidos {
+        margin-top: 18px;
+    }
+
+    .opcoes-pagamento {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cartao-cabecalho {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-header {
+        align-items: flex-start;
+    }
+
+    .linha-acoes {
+        width: 100%;
+    }
+
+    .insercao-item {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .insercao-item .campo-grupo:first-child,
+    .insercao-item .botao {
+        grid-column: 1 / -1;
+    }
+
+    .opcao-cliente {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media print {
+    #sidebar,
+    #header-home,
+    .dashboard-header,
+    .linha-acoes,
+    .painel-lateral,
+    .toasts,
+    .acoes-modal {
+        display: none !important;
+    }
+
+    #conteudo {
+        margin-left: 0;
+    }
+
+    .conteudo-interno,
+    #main_pedidos {
+        padding: 0;
+        margin: 0;
+    }
+
+    .modal-overlay {
+        position: static;
+        padding: 0;
+        background-color: var(--cor-superficie);
+    }
+
+    .modal {
+        width: 100%;
+        max-height: none;
+        box-shadow: none;
+    }
+}
