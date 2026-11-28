@@ -5,23 +5,56 @@
 }
 
 #config-page .config-layout {
+    position: relative;
+    isolation: isolate;
     display: grid;
     grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
     gap: 20px;
     align-items: start;
+    min-width: 0;
     margin-top: 20px;
 }
 
 #config-page .config-nav {
+    position: relative;
+    top: auto;
+    z-index: 3;
+    min-width: 0;
     padding: 12px;
+    scroll-margin-top: 96px;
 }
 
-#config-page .config-nav-titulo {
-    padding: 6px 10px 12px;
+#config-page .config-conteudo {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+#config-page .config-barra-secao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    background-color: var(--cor-fundo);
+    scroll-margin-top: 96px;
+}
+
+#config-page .config-secao-atual {
     color: var(--cor-texto-suave);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: 13px;
+}
+
+#config-page .config-secao-atual strong {
+    color: var(--cor-primaria);
+}
+
+#config-page.secao-aberta .config-layout {
+    grid-template-columns: minmax(0, 1fr);
 }
 
 #config-page .config-nav nav {
@@ -557,17 +590,6 @@
     #config-page .config-layout {
         grid-template-columns: minmax(0, 1fr);
     }
-
-    #config-page .config-nav nav {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 4px;
-    }
-
-    #config-page .aba-config {
-        flex: 0 0 auto;
-        min-width: 190px;
-    }
 }
 
 @media (max-width: 900px) {
@@ -581,6 +603,16 @@
 }
 
 @media (max-width: 640px) {
+    #config-page .config-barra-secao {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #config-page .config-barra-secao .botao {
+        width: 100%;
+        justify-content: center;
+    }
+
     #config-page .perfil-topo {
         grid-template-columns: minmax(0, 1fr);
         text-align: center;
